@@ -2,8 +2,7 @@
 import * as authService from '../../services/authService'
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './SignupForm.css';
-import Restaurant from '../restaurant/restaurant';
+
 const SignupForm = (props) => {
   const navigate = useNavigate();
   const [message, setMessage] = useState(['']);
@@ -11,8 +10,6 @@ const SignupForm = (props) => {
     username: '',
     password: '',
     passwordConf: '',
-    email: '',
-    restaurant:false,
   });
 
   const updateMessage = (msg) => {
@@ -34,10 +31,10 @@ const SignupForm = (props) => {
     }
   }
 
-  const { username, password, passwordConf,email } = formData;
+  const { username, password, passwordConf } = formData;
 
   const isFormInvalid = () => {
-    return !(username && password && password === passwordConf && email);
+    return !(username && password && password === passwordConf);
   };
 
   return (
@@ -72,16 +69,6 @@ const SignupForm = (props) => {
             id="confirm"
             value={passwordConf}
             name="passwordConf"
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="text"
-            id="email"
-            value={email}
-            name="email"
             onChange={handleChange}
           />
         </div>
