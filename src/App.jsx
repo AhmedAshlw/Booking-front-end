@@ -10,6 +10,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Landing from "./components/Landing/Landing";
 import Dashboard from "./components/Dashboard/Dashboard";
 import SignupForm from "./components/SignupForm/SignupForm";
+import ResForm from "./components/restaurant/restaurantForm";
 
 //Services
 import * as authService from "../src/services/authService";
