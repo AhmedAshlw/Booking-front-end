@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-
-
 const ResForm = () => {
   const [restrData, setRestrData] = useState({
     name: "",
@@ -16,7 +14,7 @@ const ResForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Restaurant created");
+    handleAddRestaurant(restrData);
   };
 
   return (
@@ -28,7 +26,7 @@ const ResForm = () => {
           <input
             type="text"
             id="name"
-            value={name}
+            value={restrData.name}
             name="name"
             onChange={handleChange}
           />
@@ -38,7 +36,7 @@ const ResForm = () => {
           <input
             type="text"
             id="rating"
-            value={rating}
+            value={restrData.rating}
             name="rating"
             onChange={handleChange}
           />
@@ -48,7 +46,7 @@ const ResForm = () => {
           <input
             type="text"
             id="category"
-            value={category}
+            value={restrData.category}
             name="category"
             onChange={handleChange}
           />
@@ -58,16 +56,13 @@ const ResForm = () => {
           <input
             type="text"
             id="operatingHours"
-            value={operatingHours}
+            value={restrData.operatingHours}
             name="operatingHours"
             onChange={handleChange}
           />
         </div>
         <div>
-          <button disabled={isFormInvalid()}>Create Restaurant</button>
-          <Link to="/">
-            <button>Cancel</button>
-          </Link>
+          <button type="submit">Create Restaurant</button>
         </div>
       </form>
     </main>
