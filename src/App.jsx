@@ -14,6 +14,7 @@ import ResForm from "./components/restaurant/restaurantForm";
 
 //Services
 import * as authService from "../src/services/authService";
+import * as restaurantService from "../src/services/restaurant";
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
@@ -32,6 +33,12 @@ const App = () => {
     if (user) fetchAllres();
   }, [user]);
 
+  const handleAddRestaurant = async (restrData) => {
+    const newRestaurant = await restaurantService.create(restrData);
+    setRestaurant([...restaurants, newRestaurant]);
+    navigate("/restaurants");
+  };
+
   return (
     <>
       <NavBar user={user} handleSignout={handleSignout} />
@@ -45,9 +52,9 @@ const App = () => {
               path="/restaurants"
               element={<Restaurant restaurants={restaurants} />}
             />
-             <Route
+            <Route
               path="/addRestaurant"
-              element={<ResForm />}
+              element={<ResForm handleAddRestaurant={handleAddRestaurant} />}
             />
           </>
         ) : (
