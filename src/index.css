@@ -13,14 +13,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 main {
-  width:1500px ;
+  width: 1500px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
 article {
- border: 1px solid blue;
+  border: 1px solid blue;
   width: 450px;
   margin-bottom: 18px;
   border-radius: 10px;
@@ -66,6 +66,10 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+nav {
+  background-color: #646cff;
 }
 
 @media (prefers-color-scheme: light) {

@@ -1,30 +1,19 @@
-const Restaurant =({restaurants})=>{
-
-return (
+const Restaurant = ({ restaurants }) => {
+  return (
     <>
- 
-<h1>all Restaurants</h1>   
-<ul>
-{restaurants.map((res)=>(<>
-<li><h1>{res.name}</h1>
-<p>{res.category}</p>
+      <h1>all Restaurants</h1>
+      <ul>
+        {restaurants.map((res) => (
+          <>
+            <li>
+              <h1>{res.name}</h1>
+              <p>{res.category}</p>
+            </li>
+          </>
+        ))}
+      </ul>
+    </>
+  );
+};
 
-
-</li>
-
-
-</>
-))}
-</ul>
-</>
-)
-
-
-
-
-
-
-
-}
-
-export default Restaurant ; 
+export default Restaurant;
