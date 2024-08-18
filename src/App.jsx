@@ -45,6 +45,10 @@ const App = () => {
               path="/restaurants"
               element={<Restaurant restaurants={restaurants} />}
             />
+             <Route
+              path="/addRestaurant"
+              element={<ResForm />}
+            />
           </>
         ) : (
           // Public Route:
