@@ -46,13 +46,14 @@ useEffect(() => {
   return (
     <>
        <NavBar user={user} handleSignout={handleSignout} /> 
-      
-       <Restaurant restaurants={restaurants}/>
+       
+       
 <Routes>
   {user ? (
     // Protected Routes:
     <>
-      <Route path="/" element={<Dashboard user={user} />} />
+      <Route path="/" element={<Dashboard user={user} /> }   />
+      <Route path="/restaurants" element={<Restaurant restaurants={restaurants}/>}   />
       
     </>
   ) : (
