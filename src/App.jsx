@@ -11,7 +11,7 @@ import Landing from "./components/Landing/Landing";
 import Dashboard from "./components/Dashboard/Dashboard";
 import SignupForm from "./components/SignupForm/SignupForm";
 import ResForm from "./components/restaurant/restaurantForm";
-
+import MyRestaurants from "./components/MyRestaurant/MyRestaurant";
 //Services
 import * as authService from "../src/services/authService";
 import * as resService from "./services/restaurant";
@@ -42,6 +42,13 @@ const App = () => {
     navigate("/restaurants");
   };
 
+ const fetchUserRes =async ()=>{
+
+
+  
+ }
+
+
   return (
     <>
       <NavBar user={user} handleSignout={handleSignout} />
@@ -59,7 +66,14 @@ const App = () => {
               path="/addRestaurant"
               element={<ResForm handleAddRestaurant={handleAddRestaurant} />}
             />
+           <Route
+              path="/MyRestaurants"
+              element={<MyRestaurants/>}
+            />
+
+
           </>
+
         ) : (
           // Public Route:
           <Route path="/" element={<Landing />} />

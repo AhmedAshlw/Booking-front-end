@@ -14,10 +14,16 @@ const NavBar = ({ user, handleSignout }) => {
             <li>
               <Link to="/restaurants">Restaurants</Link>
             </li>
-            {user.isRestaurant ? (
+            {user.isRestaurant ? (<>
               <li>
                 <Link to="/addRestaurant">Add Restaurant</Link>
               </li>
+              <li>
+              <Link to="/MyRestaurants">My Restaurant</Link>
+            </li>
+
+</>
+
             ) : (
               <></>
             )}
