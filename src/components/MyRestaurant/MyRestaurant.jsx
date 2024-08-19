@@ -1,32 +1,29 @@
-import { Link } from 'react-router-dom';
-const MyRestaurants = ({myrestaurant})=>{
+import { Link } from "react-router-dom";
 
+import "./MyRestaurant.css";
 
-return (
+const MyRestaurants = ({ myrestaurant }) => {
+  return (
     <>
-        all owned restaurant
-        <ul>
-            {myrestaurant.map((res) => (
-                <>
-                    <Link to={`/restaurants/${res._id}`}>
-                        <div class="card" style={{ width: "18rem" }}>
-                            <img src="..." class="card-img-top" alt="..." />
-                            <div class="card-body">
-                                <h5 class="card-title">{res.name}</h5>
-                                <p class="card-text">{res.category}</p>
-                               
-                            </div>
-                        </div>
-                    </Link>
-                </>
-            ))}
+      <div className="myrestCont">
+        <h1>All Owned Restaurants</h1>
+        <ul className="myrestCard">
+          {myrestaurant.map((res) => (
+            <>
+              <li>
+                <Link to={`/restaurants/${res._id}`}>
+                  <>
+                    <h1>{res.name}</h1>
+                    <p>{res.category}</p>
+                  </>
+                </Link>
+              </li>
+            </>
+          ))}
         </ul>
+      </div>
     </>
-);
-
-
-
-}
-
+  );
+};
 
 export default MyRestaurants;
