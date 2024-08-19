@@ -5,6 +5,7 @@ import "./MyRestaurant.css";
 const MyRestaurants = ({ myrestaurant }) => {
   return (
     <>
+
       <div className="myrestCont">
         <h1>All Owned Restaurants</h1>
         <ul className="myrestCard">

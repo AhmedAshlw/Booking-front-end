@@ -1,11 +1,8 @@
-// App.jsx
-import SigninForm from "./components/SigninForm/SigninForm";
-// src/App.jsx
-// src/App.jsx
-
-import Restaurant from "./components/restaurant/restaurant";
 import { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
+// Components
+import Restaurant from "./components/restaurant/restaurant";
+import SigninForm from "./components/SigninForm/SigninForm";
 import NavBar from "./components/NavBar/NavBar";
 import Landing from "./components/Landing/Landing";
 import Dashboard from "./components/Dashboard/Dashboard";
@@ -13,6 +10,7 @@ import SignupForm from "./components/SignupForm/SignupForm";
 import ResForm from "./components/restaurant/restaurantForm";
 import MyRestaurants from "./components/MyRestaurant/MyRestaurant";
 import RestaurantDetails from "./components/restaurant/restaurantDetails";
+import MyResDetails from "./components/MyRestaurant/MyResDeatails";
 //Services
 import * as authService from "../src/services/authService";
 import * as resService from "./services/restaurant";
@@ -80,6 +78,11 @@ const App = () => {
             <Route
               path="/MyRestaurants"
               element={<MyRestaurants myrestaurant={myrestaurant} />}
+            />
+            {/* show my restauarnt details */}
+            <Route
+              path="/MyRestaurants/:resId"
+              element={<MyResDetails myrestaurant={myrestaurant} />}
             />
             <Route
               path="/restaurants/:resId"
