@@ -6,7 +6,7 @@ import BookingForm from "../Booking/BookingForm";
 //service
 import * as resService from "../../services/restaurant";
 
-const RestaurantDetails = ({}) => {
+const RestaurantDetails = ({handleAddBooking}) => {
   const { resId } = useParams();
   const [res, setres] = useState();
   const [showComponent, setShowComponent] = useState(false);
@@ -43,7 +43,7 @@ const RestaurantDetails = ({}) => {
       <p>Category : {res.category}</p>
       <p>operatingHours :{res.operatingHours}</p>
       <button onClick={deriveButtonText}>Book</button>
-      {showComponent && <BookingForm />}
+      {showComponent && <BookingForm  handleAddBooking={handleAddBooking}/>}
     </>
   );
 };

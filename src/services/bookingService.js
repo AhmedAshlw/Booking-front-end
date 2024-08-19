@@ -1,6 +1,6 @@
-const BASE_URL = "http://localhost:3000/restaurants/:resId/Booking";
+const BASE_URL = "http://localhost:3000";
 
-const create = async (formData) => {
+const create = async (formData, resId) => {
   const options = {
     method: "POST",
     headers: {
@@ -9,8 +9,11 @@ const create = async (formData) => {
     },
     body: JSON.stringify(formData),
   };
-  const res = await fetch(BASE_URL, options);
-
+  // const res = await fetch(`${BASE_URL}/${resId}/Booking`, options);
+  const res = await fetch(
+    `${BASE_URL}/restaurants/66c1bf091cb12e3322267b95/Booking`,
+    options
+  );
   return res.json();
 };
 
