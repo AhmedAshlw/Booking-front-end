@@ -1,11 +1,14 @@
 import { useState } from "react";
-
+import { useParams } from "react-router-dom";
+//we need to use params
 const BookingForm = ({ handleAddBooking }) => {
   const [bookingData, setBookingData] = useState({
     date: "",
     time: "",
-    seat: "",
+    seats: "",
   });
+
+  const { resId } = useParams();
 
   const handleChange = (e) => {
     setBookingData({ ...bookingData, [e.target.name]: e.target.value });
@@ -13,7 +16,7 @@ const BookingForm = ({ handleAddBooking }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    handleAddBooking(bookingData);
+    handleAddBooking(bookingData,resId);
   };
 
   return (
@@ -41,12 +44,12 @@ const BookingForm = ({ handleAddBooking }) => {
           />
         </div>
         <div>
-          <label htmlFor="seat">Seat:</label>
+          <label htmlFor="seats">Seats:</label>
           <input
             type="number"
-            id="seat"
-            value={bookingData.seat}
-            name="seat"
+            id="seats"
+            value={bookingData.seats}
+            name="seats"
             onChange={handleChange}
           />
         </div>
