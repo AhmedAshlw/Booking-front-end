@@ -16,7 +16,6 @@ import ResForm from "./components/restaurant/restaurantForm";
 import * as authService from "../src/services/authService";
 import * as resService from "./services/restaurant";
 
-
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
   const [restaurants, setRestaurant] = useState([]);
@@ -45,7 +44,6 @@ const App = () => {
   return (
     <>
       <NavBar user={user} handleSignout={handleSignout} />
-
       <Routes>
         {user ? (
           // Protected Routes:
