@@ -6,7 +6,7 @@ import BookingForm from "../Booking/BookingForm";
 //service
 import * as resService from "../../services/restaurant";
 
-const RestaurantDetails = (props) => {
+const RestaurantDetails = ({}) => {
   const { resId } = useParams();
   const [res, setres] = useState();
   const [showComponent, setShowComponent] = useState(false);
