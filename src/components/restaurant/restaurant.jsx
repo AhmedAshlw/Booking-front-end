@@ -1,19 +1,23 @@
-
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import "./restaurant.css";
 const Restaurant = ({ restaurants }) => {
   return (
     <>
-      <h1>all Restaurants</h1>
-      <ul>
-        {restaurants.map((res) => (<Link to={`/restaurants/${res._id}`}>
-          <>
+      <div className="restCont">
+        <h1>All Restaurants</h1>
+        <ul className="restCard">
+          {restaurants.map((res) => (
             <li>
-              <h1>{res.name}</h1>
-              <p>{res.category}</p>
+              <Link to={`/restaurants/${res._id}`}>
+                <>
+                  <h1>{res.name}</h1>
+                  <p>{res.category}</p>
+                </>
+              </Link>
             </li>
-          </></Link>
-        ))}
-      </ul>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };

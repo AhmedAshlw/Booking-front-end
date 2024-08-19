@@ -52,8 +52,8 @@ const App = () => {
     navigate("/restaurants");
   };
 
-  const handleAddBooking = async (bookingData,resId) => {
-    const newBooking = await bookingService.create(bookingData,resId);
+  const handleAddBooking = async (bookingData, resId) => {
+    const newBooking = await bookingService.create(bookingData, resId);
     setBookings([...Bookings, newBooking]);
     navigate("/restaurants");
   };

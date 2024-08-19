@@ -1,0 +1,35 @@
+.wName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.Header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(195, 196, 187);
+  padding-top: 10px;
+}
+
+nav > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav > ul > li {
+  list-style-type: none;
+  color: black;
+  margin: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 8px;
+  font-size: 20px;
+}
