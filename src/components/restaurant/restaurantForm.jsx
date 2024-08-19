@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ResForm = ({handleAddRestaurant}) => {
+const ResForm = ({ handleAddRestaurant }) => {
   const [restrData, setRestrData] = useState({
     name: "",
     rating: "",
