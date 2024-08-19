@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 //service 
 import * as resService from '../../services/restaurant'
 
-const RestaurantDetails = (props)=>{
+const RestaurantDetails = ({})=>{
 const {resId} =useParams();
 const [res,setres]=useState();
 
