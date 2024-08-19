@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 
 const NavBar = ({ user, handleSignout }) => {
   return (
+    
     <>
+    
       {user ? (
         <nav>
           <ul>
@@ -51,3 +53,5 @@ const NavBar = ({ user, handleSignout }) => {
 };
 
 export default NavBar;
+
+
