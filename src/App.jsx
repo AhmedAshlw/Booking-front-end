@@ -16,12 +16,13 @@ import RestaurantDetails from "./components/restaurant/restaurantDetails";
 //Services
 import * as authService from "../src/services/authService";
 import * as resService from "./services/restaurant";
-
+import * as bookingService from "./services/bookingService";
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
   const [restaurants, setRestaurant] = useState([]);
-  const [myrestaurant,setmyrestaurant] = useState([]);
+  const [Bookings, setBookings] = useState([]);
+  const [myrestaurant, setmyrestaurant] = useState([]);
   const handleSignout = () => {
     authService.signout();
     setUser(null);
@@ -32,19 +33,20 @@ const App = () => {
   useEffect(() => {
     const fetchAllres = async () => {
       const resData = await resService.index();
-     
+
       setRestaurant(resData);
-      if(user.isRestaurant){
-        setmyrestaurant(resData.filter((res)=>{if (res.owner.username==user.username){return res}}));
-        
-      } 
+      if (user.isRestaurant) {
+        setmyrestaurant(
+          resData.filter((res) => {
+            if (res.owner.username == user.username) {
+              return res;
+            }
+          })
+        );
+      }
     };
     if (user) fetchAllres();
-    
   }, [user]);
-
-
- 
 
   const handleAddRestaurant = async (restrData) => {
     const newRestaurant = await resService.create(restrData);
@@ -52,13 +54,11 @@ const App = () => {
     navigate("/restaurants");
   };
 
-
-
-
-
-
-
-
+  const handleAddBooking = async (bookingData) => {
+    const newBooking = await bookingService.create(bookingData);
+    setBookings([...Bookings, newBooking]);
+    navigate("/restaurants");
+  };
 
   return (
     <>
@@ -77,15 +77,17 @@ const App = () => {
               path="/addRestaurant"
               element={<ResForm handleAddRestaurant={handleAddRestaurant} />}
             />
-           <Route
+            <Route
               path="/MyRestaurants"
-              element={<MyRestaurants myrestaurant={myrestaurant}/>}
+              element={<MyRestaurants myrestaurant={myrestaurant} />}
             />
-            <Route path="/restaurants/:resId" element={<RestaurantDetails/>} />
-
-
+            <Route
+              path="/restaurants/:resId"
+              element={
+                <RestaurantDetails handleAddBooking={handleAddBooking} />
+              }
+            />
           </>
-
         ) : (
           // Public Route:
           <Route path="/" element={<Landing />} />
