@@ -20,6 +20,7 @@ import * as resService from "./services/restaurant";
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
   const [restaurants, setRestaurant] = useState([]);
+  const [myrestaurant,setmyrestaurant] = useState([]);
   const handleSignout = () => {
     authService.signout();
     setUser(null);
@@ -30,11 +31,19 @@ const App = () => {
   useEffect(() => {
     const fetchAllres = async () => {
       const resData = await resService.index();
-
+     
       setRestaurant(resData);
+      if(user.isRestaurant){
+        setmyrestaurant(resData.filter((res)=>{if (res.owner.username==user.username){return res}}));
+        
+      } 
     };
     if (user) fetchAllres();
+    
   }, [user]);
+
+
+ 
 
   const handleAddRestaurant = async (restrData) => {
     const newRestaurant = await resService.create(restrData);
@@ -42,11 +51,12 @@ const App = () => {
     navigate("/restaurants");
   };
 
- const fetchUserRes =async ()=>{
 
 
-  
- }
+
+
+
+
 
 
   return (
@@ -68,7 +78,7 @@ const App = () => {
             />
            <Route
               path="/MyRestaurants"
-              element={<MyRestaurants/>}
+              element={<MyRestaurants myrestaurant={myrestaurant}/>}
             />
 
 

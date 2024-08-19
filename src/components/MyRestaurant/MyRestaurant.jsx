@@ -1,7 +1,9 @@
-const MyRestaurants = ()=>{
+const MyRestaurants = ({myrestaurants})=>{
 
 
-return (<h1>your res should be shown here</h1>)
+return (<>
+
+</>)
 
 
 
