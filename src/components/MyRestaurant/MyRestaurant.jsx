@@ -1,8 +1,14 @@
-const MyRestaurants = ({myrestaurants})=>{
+const MyRestaurants = ({myrestaurant})=>{
 
 
-return (<>
-
+return (<>all owned restaurant
+<ul>
+{myrestaurant.map((res)=>(<>
+              <h1>{res.name}</h1>
+              <p>{res.category}</p>
+              </>
+))}
+</ul>
 </>)
 
 
