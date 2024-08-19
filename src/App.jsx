@@ -2,10 +2,10 @@
 import SigninForm from "./components/SigninForm/SigninForm";
 // src/App.jsx
 // src/App.jsx
-import * as resService from "./services/restaurant";
+
 import Restaurant from "./components/restaurant/restaurant";
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
 import Landing from "./components/Landing/Landing";
 import Dashboard from "./components/Dashboard/Dashboard";
@@ -14,7 +14,8 @@ import ResForm from "./components/restaurant/restaurantForm";
 
 //Services
 import * as authService from "../src/services/authService";
-import * as restaurantService from "../src/services/restaurant";
+import * as resService from "./services/restaurant";
+
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
@@ -23,6 +24,8 @@ const App = () => {
     authService.signout();
     setUser(null);
   };
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAllres = async () => {
@@ -34,7 +37,7 @@ const App = () => {
   }, [user]);
 
   const handleAddRestaurant = async (restrData) => {
-    const newRestaurant = await restaurantService.create(restrData);
+    const newRestaurant = await resService.create(restrData);
     setRestaurant([...restaurants, newRestaurant]);
     navigate("/restaurants");
   };
