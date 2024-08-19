@@ -12,7 +12,7 @@ const MyRestaurants = ({ myrestaurant }) => {
           {myrestaurant.map((res) => (
             <>
               <li>
-                <Link to={`/restaurants/${res._id}`}>
+              <Link to={`/MyRestaurants/${res._id}`}>
                   <>
                     <h1>{res.name}</h1>
                     <p>{res.category}</p>
