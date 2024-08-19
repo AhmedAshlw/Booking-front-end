@@ -12,6 +12,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import SignupForm from "./components/SignupForm/SignupForm";
 import ResForm from "./components/restaurant/restaurantForm";
 import MyRestaurants from "./components/MyRestaurant/MyRestaurant";
+import RestaurantDetails from "./components/restaurant/restaurantDetails";
 //Services
 import * as authService from "../src/services/authService";
 import * as resService from "./services/restaurant";
@@ -80,6 +81,7 @@ const App = () => {
               path="/MyRestaurants"
               element={<MyRestaurants myrestaurant={myrestaurant}/>}
             />
+            <Route path="/restaurants/:resId" element={<RestaurantDetails/>} />
 
 
           </>
