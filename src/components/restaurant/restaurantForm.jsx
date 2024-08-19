@@ -3,7 +3,7 @@ import { useState } from "react";
 const ResForm = ({ handleAddRestaurant }) => {
   const [restrData, setRestrData] = useState({
     name: "",
-    rating: "",
+    location: "",
     category: "",
     operatingHours: "",
   });
@@ -32,12 +32,12 @@ const ResForm = ({ handleAddRestaurant }) => {
           />
         </div>
         <div>
-          <label htmlFor="rating">Ratting:</label>
+          <label htmlFor="location">location:</label>
           <input
             type="text"
-            id="rating"
-            value={restrData.rating}
-            name="rating"
+            id="location"
+            value={restrData.location}
+            name="location"
             onChange={handleChange}
           />
         </div>
