@@ -1,0 +1,7 @@
+input[type="ratio"] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+}
