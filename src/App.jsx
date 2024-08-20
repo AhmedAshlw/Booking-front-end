@@ -1,11 +1,8 @@
-// App.jsx
-import SigninForm from "./components/SigninForm/SigninForm";
-// src/App.jsx
-// src/App.jsx
-
-import Restaurant from "./components/restaurant/restaurant";
 import { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
+// Components
+import Restaurant from "./components/restaurant/restaurant";
+import SigninForm from "./components/SigninForm/SigninForm";
 import NavBar from "./components/NavBar/NavBar";
 import Landing from "./components/Landing/Landing";
 import Dashboard from "./components/Dashboard/Dashboard";
@@ -13,6 +10,10 @@ import SignupForm from "./components/SignupForm/SignupForm";
 import ResForm from "./components/restaurant/restaurantForm";
 import MyRestaurants from "./components/MyRestaurant/MyRestaurant";
 import RestaurantDetails from "./components/restaurant/restaurantDetails";
+import MyResDetails from "./components/MyRestaurant/MyResDeatails";
+import BookingList from "./components/Booking/BookingList";
+import MyResBookings from "./components/MyRestaurant/MyResBookings";
+import BookingForm from "./components/Booking/BookingForm";
 //Services
 import * as authService from "../src/services/authService";
 import * as resService from "./services/restaurant";
@@ -23,6 +24,7 @@ const App = () => {
   const [restaurants, setRestaurant] = useState([]);
   const [Bookings, setBookings] = useState([]);
   const [myrestaurant, setmyrestaurant] = useState([]);
+
   const handleSignout = () => {
     authService.signout();
     setUser(null);
@@ -48,16 +50,52 @@ const App = () => {
     if (user) fetchAllres();
   }, [user]);
 
+
+  useEffect(() => {
+    const fetchAllbooks = async () => {
+      const bookData = await bookingService.index();
+      
+      setBookings(bookData);
+      
+      
+    };
+    if (user) fetchAllbooks();
+  }, [user]);
+
+  const fetchAllbooks = async () => {
+    const bookData = await bookingService.index();
+    
+    setBookings(bookData);
+    
+    
+  };
+
+
+
+
   const handleAddRestaurant = async (restrData) => {
     const newRestaurant = await resService.create(restrData);
     setRestaurant([...restaurants, newRestaurant]);
     navigate("/restaurants");
   };
 
-  const handleAddBooking = async (bookingData,resId) => {
-    const newBooking = await bookingService.create(bookingData,resId);
+  const handleAddBooking = async (bookingData, resId) => {
+    const newBooking = await bookingService.create(bookingData, resId);
     setBookings([...Bookings, newBooking]);
+    fetchAllbooks();
     navigate("/restaurants");
+  };
+
+  const handleUpdateBook = async (bookId,formData) => {
+    const updatedBook = await bookingService.update(bookId, formData);
+    fetchAllbooks();
+    navigate(`/booking`);
+  };
+
+  const handleDeleteBook = async (BookId) => {
+    const deletedBook = await bookingService.deleteBook(BookId);
+    fetchAllbooks();
+    navigate('/booking');
   };
 
   return (
@@ -81,6 +119,28 @@ const App = () => {
               path="/MyRestaurants"
               element={<MyRestaurants myrestaurant={myrestaurant} />}
             />
+             <Route
+              path="/booking"
+              element={<BookingList Bookings={Bookings} handleDeleteBook={handleDeleteBook}/>}
+            />
+
+             <Route
+                path="/restaurants/:bookId/edit"
+                element={<BookingForm handleUpdateBook={handleUpdateBook} />}
+              />
+            {/* show my restauarnt details */}
+            <Route
+              path="/MyRestaurants/:resId"
+              element={<MyResDetails myrestaurant={myrestaurant} />}
+            />
+
+            {/* show my restauarnt Bookings*/}
+            <Route  
+              path="/restaurants/:resId/Booking"
+              element={<MyResBookings />}
+            />
+
+
             <Route
               path="/restaurants/:resId"
               element={
@@ -100,3 +160,4 @@ const App = () => {
 };
 
 export default App;
+

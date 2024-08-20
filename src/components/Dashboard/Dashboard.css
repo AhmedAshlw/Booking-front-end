@@ -1,14 +1,23 @@
-.video-container {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+.vCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.video-container video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.welcoming {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  color: white;
+}
+
+video {
+  width: 1349px;
+}
+
+.videoCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

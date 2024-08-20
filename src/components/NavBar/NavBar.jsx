@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
-
+import "./NavBar.css";
 // src/components/Navbar/Navbar.jsx
 
 const NavBar = ({ user, handleSignout }) => {
   return (
-    
     <>
-    
+      <div className="wName">
+        <h1>Fork Finder</h1>
+      </div>
       {user ? (
-        <nav>
+        <nav className="Header">
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -16,16 +17,18 @@ const NavBar = ({ user, handleSignout }) => {
             <li>
               <Link to="/restaurants">Restaurants</Link>
             </li>
-            {user.isRestaurant ? (<>
-              <li>
-                <Link to="/addRestaurant">Add Restaurant</Link>
-              </li>
-              <li>
-              <Link to="/MyRestaurants">My Restaurant</Link>
+            <li>
+              <Link to="/booking">My Bookings</Link>
             </li>
-
-</>
-
+            {user.isRestaurant ? (
+              <>
+                <li>
+                  <Link to="/addRestaurant">Add Restaurant</Link>
+                </li>
+                <li>
+                  <Link to="/MyRestaurants">My Restaurant</Link>
+                </li>
+              </>
             ) : (
               <></>
             )}
@@ -37,7 +40,7 @@ const NavBar = ({ user, handleSignout }) => {
           </ul>
         </nav>
       ) : (
-        <nav>
+        <nav className="Header">
           <ul>
             <li>
               <Link to="/signin">Sign In</Link>
@@ -53,5 +56,3 @@ const NavBar = ({ user, handleSignout }) => {
 };
 
 export default NavBar;
-
-

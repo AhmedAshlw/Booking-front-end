@@ -1,14 +1,30 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
+
+import * as bookingService from "../../services/bookingService";
+import "./BookingForm.css";
 //we need to use params
-const BookingForm = ({ handleAddBooking }) => {
+const BookingForm = ({ handleAddBooking ,handleUpdateBook}) => {
   const [bookingData, setBookingData] = useState({
     date: "",
     time: "",
     seats: "",
   });
 
-  const { resId } = useParams();
+  const { bookId,resId } = useParams();
+
+  useEffect(() => {
+    const fetchBook = async () => {
+      const bookData = await bookingService.show(bookId);
+      const date = new Date(bookData.date);
+      const formattedDate = date.toISOString().split('T')[0];
+      bookData.date = formattedDate;
+      setBookingData(bookData);
+    };
+    if (bookId) fetchBook();
+  }, [bookId]);
+
+ 
 
   const handleChange = (e) => {
     setBookingData({ ...bookingData, [e.target.name]: e.target.value });
@@ -16,12 +32,17 @@ const BookingForm = ({ handleAddBooking }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    handleAddBooking(bookingData,resId);
+    if(bookId){
+      handleUpdateBook(bookId,bookingData);
+    }else {
+      handleAddBooking(bookingData, resId);
+    }
+    
   };
 
   return (
-    <main>
-      <h2>Select Your Booking Details</h2>
+    <main className="BookingFormCont">
+      <h3>Select Your Booking Details</h3>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="date">Date:</label>
@@ -54,7 +75,9 @@ const BookingForm = ({ handleAddBooking }) => {
           />
         </div>
         <div>
-          <button type="submit">Book it</button>
+          <button type="submit" className="btn2">
+            {bookId ? <>Update</> : <>Book</>}
+          </button>
         </div>
       </form>
     </main>
