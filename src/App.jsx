@@ -62,7 +62,6 @@ const App = () => {
   };
   return (
     <>
-      {/* nav */}
       <NavBar user={user} handleSignout={handleSignout} />
       <Routes>
         {user ? (
