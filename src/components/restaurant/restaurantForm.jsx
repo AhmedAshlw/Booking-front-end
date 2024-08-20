@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import "./restaurant.css";
+
 const ResForm = ({ handleAddRestaurant }) => {
   const [restrData, setRestrData] = useState({
     name: "",
@@ -18,7 +20,7 @@ const ResForm = ({ handleAddRestaurant }) => {
   };
 
   return (
-    <main>
+    <main className="newRestrCont">
       <h1>New Restaurant</h1>
       <form onSubmit={handleSubmit}>
         <div>
@@ -62,7 +64,9 @@ const ResForm = ({ handleAddRestaurant }) => {
           />
         </div>
         <div>
-          <button type="submit">Create Restaurant</button>
+          <button type="submit" className="btn1">
+            Create Restaurant
+          </button>
         </div>
       </form>
     </main>

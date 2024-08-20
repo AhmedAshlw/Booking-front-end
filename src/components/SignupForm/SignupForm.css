@@ -1,3 +1,46 @@
-@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css");
 
-/* Your custom CSS code for the SignupForm component */
+.signOutCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(9, 212, 219);
+  width: 500px;
+  min-height: 380px;
+  border-radius: 10px;
+  margin-top: 18px;
+}
+
+input {
+  width: 250px;
+  height: 30px;
+  font-size: 18px;
+  display: block;
+  border-radius: 8px;
+}
+
+label {
+  font-size: 18px;
+  display: flex;
+  justify-content: start;
+}
+
+.btn1 {
+  background-color: #66cdaa;
+  color: black;
+  margin: 10px;
+  margin-top: 30px;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 8px;
+  font-size: 18px;
+  border: none;
+}
+
+.btn1:hover {
+  background-color: #057e74;
+  color: white;
+}

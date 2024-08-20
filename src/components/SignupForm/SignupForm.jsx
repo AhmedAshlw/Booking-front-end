@@ -1,18 +1,18 @@
 // SignupForm.jsx
-import * as authService from '../../services/authService'
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import './SignupForm.css';
-import Restaurant from '../restaurant/restaurant';
+import * as authService from "../../services/authService";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./SignupForm.css";
+import Restaurant from "../restaurant/restaurant";
 const SignupForm = (props) => {
   const navigate = useNavigate();
-  const [message, setMessage] = useState(['']);
+  const [message, setMessage] = useState([""]);
   const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-    passwordConf: '',
-    email: '',
-    commercialRegistrationNumber: ''
+    username: "",
+    password: "",
+    passwordConf: "",
+    email: "",
+    commercialRegistrationNumber: "",
   });
 
   const updateMessage = (msg) => {
@@ -24,24 +24,30 @@ const SignupForm = (props) => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
       const newUserResponse = await authService.Signup(formData);
       props.setUser(newUserResponse.user);
-      navigate('/')
+      navigate("/");
     } catch (err) {
-      updateMessage(err.message)
+      updateMessage(err.message);
     }
-  }
+  };
 
-  const { username, password, passwordConf, email, commercialRegistrationNumber } = formData;
+  const {
+    username,
+    password,
+    passwordConf,
+    email,
+    commercialRegistrationNumber,
+  } = formData;
 
   const isFormInvalid = () => {
     return !(username && password && password === passwordConf && email);
   };
 
   return (
-    <main>
+    <main className="signOutCont">
       <h1>Sign Up</h1>
       <p>{message}</p>
       <form onSubmit={handleSubmit}>
@@ -85,21 +91,22 @@ const SignupForm = (props) => {
             onChange={handleChange}
           />
         </div>
-      <div>
-    <label htmlFor="commercialRegistrationNumber">CRN</label>
-    <input
-      type="number"
-      id="commercialRegistrationNumber"
-      value={commercialRegistrationNumber}
-      name="commercialRegistrationNumber"
-      onChange={handleChange}
-      />
-
-      </div>
         <div>
-          <button disabled={isFormInvalid()}>Sign Up</button>
+          <label htmlFor="commercialRegistrationNumber">CRN</label>
+          <input
+            type="number"
+            id="commercialRegistrationNumber"
+            value={commercialRegistrationNumber}
+            name="commercialRegistrationNumber"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <button disabled={isFormInvalid()} className="btn1">
+            Sign Up
+          </button>
           <Link to="/">
-            <button>Cancel</button>
+            <button className="btn1">Back</button>
           </Link>
         </div>
       </form>

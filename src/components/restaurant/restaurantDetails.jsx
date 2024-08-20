@@ -39,14 +39,18 @@ const RestaurantDetails = ({ handleAddBooking }) => {
 
   return (
     <>
-      <div className="ShowRestCont">
-        <h1>{res.name}</h1>
-        <p>Location :{res.location}</p>
-        <p>Rating : {res.rating}</p>
-        <p>Category : {res.category}</p>
-        <p>operatingHours :{res.operatingHours}</p>
-        <button onClick={deriveButtonText}>Book</button>
-        {showComponent && <BookingForm handleAddBooking={handleAddBooking} />}
+      <div className="RestrBookCont">
+        <div className="ShowRestCont">
+          <h1>{res.name}</h1>
+          <p>Location :{res.location}</p>
+          <p>Rating : {res.rating}</p>
+          <p>Category : {res.category}</p>
+          <p>operatingHours :{res.operatingHours}</p>
+        </div>
+        <div className="ShowBookingCont">
+          <button onClick={deriveButtonText}>Book</button>
+          {showComponent && <BookingForm handleAddBooking={handleAddBooking} />}
+        </div>
       </div>
     </>
   );

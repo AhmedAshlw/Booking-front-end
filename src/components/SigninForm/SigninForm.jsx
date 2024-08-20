@@ -1,15 +1,15 @@
 // SigninForm
 
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import * as  authService from '../../services/authService'; // import the authservice
-import './SigninForm.css';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import * as authService from "../../services/authService"; // import the authservice
+import "./SigninForm.css";
 const SigninForm = (props) => {
   const navigate = useNavigate(); // added this for navigation purposes
-  const [message, setMessage] = useState(['']);
+  const [message, setMessage] = useState([""]);
   const [formData, setFormData] = useState({
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   });
 
   const updateMessage = (msg) => {
@@ -17,7 +17,7 @@ const SigninForm = (props) => {
   };
 
   const handleChange = (e) => {
-    updateMessage('');
+    updateMessage("");
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -27,16 +27,15 @@ const SigninForm = (props) => {
       const user = await authService.signin(formData); // TODO build signin service function
 
       props.setUser(user);
-      navigate('/');
+      navigate("/");
     } catch (err) {
       updateMessage(err.message);
     }
   };
 
   return (
-    <main>
+    <main className="signInCont">
       <h1>Log In</h1>
-      <p>{message}</p>
       <form autoComplete="off" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">Username:</label>
@@ -61,9 +60,9 @@ const SigninForm = (props) => {
           />
         </div>
         <div>
-          <button>Log In</button>
+          <button className="btn1">Log In</button>
           <Link to="/">
-            <button>Cancel</button>
+            <button className="btn1">Back</button>
           </Link>
         </div>
       </form>
