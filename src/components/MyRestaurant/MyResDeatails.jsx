@@ -42,6 +42,7 @@ const MyResDetails = ()=>{
         <p>Category : {res.category}</p>
         <p>operatingHours :{res.operatingHours}</p>
         <Link to={`/restaurants/${resId}/Booking`}> Show all Bookings </Link>
+        <Link to={`/restaurants/${resId}`}>Edit</Link>
       </>
     );
 

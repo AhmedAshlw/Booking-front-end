@@ -50,6 +50,20 @@ const App = () => {
     if (user) fetchAllres();
   }, [user]);
 
+  const fetchAllres = async () => {
+    const resData = await resService.index();
+
+    setRestaurant(resData);
+    if (user.isRestaurant) {
+      setmyrestaurant(
+        resData.filter((res) => {
+          if (res.owner.username == user.username) {
+            return res;
+          }
+        })
+      );
+    }
+  };
 
   useEffect(() => {
     const fetchAllbooks = async () => {
@@ -71,14 +85,23 @@ const App = () => {
   };
 
 
-
+//RESTAURANT HANDLERS
 
   const handleAddRestaurant = async (restrData) => {
     const newRestaurant = await resService.create(restrData);
     setRestaurant([...restaurants, newRestaurant]);
+    fetchAllres();
     navigate("/restaurants");
   };
 
+  const handleUpdateRes = async (resId,formData) => {
+    const newRestaurant = await resService.update(resId,formData);
+    fetchAllres();
+    navigate(`/MyRestaurants/${resId}`);
+  };
+
+
+// BOOKING HANDLERS
   const handleAddBooking = async (bookingData, resId) => {
     const newBooking = await bookingService.create(bookingData, resId);
     setBookings([...Bookings, newBooking]);
@@ -97,6 +120,8 @@ const App = () => {
     fetchAllbooks();
     navigate('/booking');
   };
+
+
 
   return (
     <>
@@ -139,8 +164,12 @@ const App = () => {
               path="/restaurants/:resId/Booking"
               element={<MyResBookings />}
             />
-
-
+            {/* update restaurant*/}
+               
+               <Route  
+              path="/restaurants/:resId"
+              element={<ResForm handleUpdateRes={handleUpdateRes}/>}
+            />
             <Route
               path="/restaurants/:resId"
               element={

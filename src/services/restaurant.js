@@ -36,4 +36,20 @@ const show = async (resId) => {
     console.log(error);
   }
 };
-export { index, create, show };
+const update = async (resId, formData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${resId}`, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { index, create, show, update };
