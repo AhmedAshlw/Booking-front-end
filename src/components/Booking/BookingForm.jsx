@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+
+import "./BookingForm.css";
 //we need to use params
 const BookingForm = ({ handleAddBooking }) => {
   const [bookingData, setBookingData] = useState({
@@ -16,12 +18,12 @@ const BookingForm = ({ handleAddBooking }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    handleAddBooking(bookingData,resId);
+    handleAddBooking(bookingData, resId);
   };
 
   return (
-    <main>
-      <h2>Select Your Booking Details</h2>
+    <main className="BookingFormCont">
+      <h3>Select Your Booking Details</h3>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="date">Date:</label>
@@ -54,7 +56,9 @@ const BookingForm = ({ handleAddBooking }) => {
           />
         </div>
         <div>
-          <button type="submit">Book it</button>
+          <button type="submit" className="btn2">
+            Book it
+          </button>
         </div>
       </form>
     </main>
