@@ -10,10 +10,7 @@ const create = async (formData, resId) => {
     body: JSON.stringify(formData),
   };
   const res = await fetch(`${BASE_URL}/restaurants/${resId}/Booking`, options);
-  // const res = await fetch(
-  //   `${BASE_URL}/restaurants/66c1bf091cb12e3322267b95/Booking`,
-  //   options
-  // );
+
   return res.json();
 };
 //show all user books
