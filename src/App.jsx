@@ -13,12 +13,11 @@ import RestaurantDetails from "./components/restaurant/restaurantDetails";
 import MyResDetails from "./components/MyRestaurant/MyResDeatails";
 import BookingList from "./components/Booking/BookingList";
 import MyResBookings from "./components/MyRestaurant/MyResBookings";
+import BookingForm from "./components/Booking/BookingForm";
 //Services
 import * as authService from "../src/services/authService";
 import * as resService from "./services/restaurant";
 import * as bookingService from "./services/bookingService";
-
-import "./App.css";
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
@@ -51,20 +50,28 @@ const App = () => {
     if (user) fetchAllres();
   }, [user]);
 
+
   useEffect(() => {
     const fetchAllbooks = async () => {
       const bookData = await bookingService.index();
-
+      
       setBookings(bookData);
+      
+      
     };
     if (user) fetchAllbooks();
   }, [user]);
 
   const fetchAllbooks = async () => {
     const bookData = await bookingService.index();
-
+    
     setBookings(bookData);
+    
+    
   };
+
+
+
 
   const handleAddRestaurant = async (restrData) => {
     const newRestaurant = await resService.create(restrData);
@@ -79,62 +86,78 @@ const App = () => {
     navigate("/restaurants");
   };
 
+  const handleUpdateBook = async (bookId,formData) => {
+    const updatedBook = await bookingService.update(bookId, formData);
+    fetchAllbooks();
+    navigate(`/booking`);
+  };
+
+  const handleDeleteBook = async (BookId) => {
+    const deletedBook = await bookingService.deleteBook(BookId);
+    fetchAllbooks();
+    navigate('/booking');
+  };
+
   return (
     <>
-      <main className="mainCont">
-        <NavBar user={user} handleSignout={handleSignout} />
+      <NavBar user={user} handleSignout={handleSignout} />
 
-        <Routes>
-          {user ? (
-            // Protected Routes:
-            <>
-              <Route path="/" element={<Dashboard user={user} />} />
-              <Route
-                path="/restaurants"
-                element={<Restaurant restaurants={restaurants} />}
-              />
-              <Route
-                path="/addRestaurant"
-                element={<ResForm handleAddRestaurant={handleAddRestaurant} />}
-              />
-              <Route
-                path="/MyRestaurants"
-                element={<MyRestaurants myrestaurant={myrestaurant} />}
-              />
-              <Route
-                path="/booking"
-                element={<BookingList Bookings={Bookings} />}
-              />
+      <Routes>
+        {user ? (
+          // Protected Routes:
+          <>
+            <Route path="/" element={<Dashboard user={user} />} />
+            <Route
+              path="/restaurants"
+              element={<Restaurant restaurants={restaurants} />}
+            />
+            <Route
+              path="/addRestaurant"
+              element={<ResForm handleAddRestaurant={handleAddRestaurant} />}
+            />
+            <Route
+              path="/MyRestaurants"
+              element={<MyRestaurants myrestaurant={myrestaurant} />}
+            />
+             <Route
+              path="/booking"
+              element={<BookingList Bookings={Bookings} handleDeleteBook={handleDeleteBook}/>}
+            />
 
-              {/* show my restauarnt details */}
-              <Route
-                path="/MyRestaurants/:resId"
-                element={<MyResDetails myrestaurant={myrestaurant} />}
+             <Route
+                path="/restaurants/:bookId/edit"
+                element={<BookingForm handleUpdateBook={handleUpdateBook} />}
               />
+            {/* show my restauarnt details */}
+            <Route
+              path="/MyRestaurants/:resId"
+              element={<MyResDetails myrestaurant={myrestaurant} />}
+            />
 
-              {/* show my restauarnt Bookings*/}
-              <Route
-                path="/restaurants/:resId/Booking"
-                element={<MyResBookings />}
-              />
+            {/* show my restauarnt Bookings*/}
+            <Route  
+              path="/restaurants/:resId/Booking"
+              element={<MyResBookings />}
+            />
 
-              <Route
-                path="/restaurants/:resId"
-                element={
-                  <RestaurantDetails handleAddBooking={handleAddBooking} />
-                }
-              />
-            </>
-          ) : (
-            // Public Route:
-            <Route path="/" element={<Landing />} />
-          )}
-          <Route path="/signup" element={<SignupForm setUser={setUser} />} />
-          <Route path="/signin" element={<SigninForm setUser={setUser} />} />
-        </Routes>
-      </main>
+
+            <Route
+              path="/restaurants/:resId"
+              element={
+                <RestaurantDetails handleAddBooking={handleAddBooking} />
+              }
+            />
+          </>
+        ) : (
+          // Public Route:
+          <Route path="/" element={<Landing />} />
+        )}
+        <Route path="/signup" element={<SignupForm setUser={setUser} />} />
+        <Route path="/signin" element={<SigninForm setUser={setUser} />} />
+      </Routes>
     </>
   );
 };
 
 export default App;
+

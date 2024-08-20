@@ -35,4 +35,45 @@ const resBook = async (resId) => {
     console.log(error);
   }
 };
-export { create, index, resBook };
+// update a book
+async function update(bookId, bookFormData) {
+  try {
+    const res = await fetch(`${BASE_URL}/Booking/${bookId}`, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(bookFormData),
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
+//show specific book
+const show = async (bookId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/Booking/${bookId}`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+// delete a booking
+const deleteBook = async (bookId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/Booking/${bookId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+export { create, index, resBook, update, show, deleteBook };
