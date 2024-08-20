@@ -66,4 +66,20 @@ const deleteRes = async (resId) => {
   }
 };
 
-export { index, create, show, update, deleteRes };
+const AddRating = async (resId, ratingFormData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/restaurants/${resId}/rating`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(ratingFormData),
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { index, create, show, update, deleteRes, AddRating };
