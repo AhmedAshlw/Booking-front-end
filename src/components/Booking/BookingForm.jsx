@@ -11,7 +11,7 @@ const BookingForm = ({ handleAddBooking ,handleUpdateBook}) => {
     seats: "",
   });
 
-  const { bookId } = useParams();
+  const { bookId,resId } = useParams();
 
   useEffect(() => {
     const fetchBook = async () => {
