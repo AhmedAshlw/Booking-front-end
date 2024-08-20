@@ -13,6 +13,7 @@ import RestaurantDetails from "./components/restaurant/restaurantDetails";
 import MyResDetails from "./components/MyRestaurant/MyResDeatails";
 import BookingList from "./components/Booking/BookingList";
 import MyResBookings from "./components/MyRestaurant/MyResBookings";
+import BookingForm from "./components/Booking/BookingForm";
 //Services
 import * as authService from "../src/services/authService";
 import * as resService from "./services/restaurant";
@@ -85,6 +86,11 @@ const App = () => {
     navigate("/restaurants");
   };
 
+  const handleUpdateBook = async (bookId,formData) => {
+    const updatedBook = await bookingService.update(bookId, formData);
+    fetchAllbooks();
+    navigate(`/booking`);
+  };
 
   return (
     <>
@@ -112,6 +118,10 @@ const App = () => {
               element={<BookingList Bookings={Bookings}/>}
             />
 
+             <Route
+                path="/restaurants/:bookId/edit"
+                element={<BookingForm handleUpdateBook={handleUpdateBook} />}
+              />
             {/* show my restauarnt details */}
             <Route
               path="/MyRestaurants/:resId"
