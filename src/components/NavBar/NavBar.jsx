@@ -17,6 +17,9 @@ const NavBar = ({ user, handleSignout }) => {
             <li>
               <Link to="/restaurants">Restaurants</Link>
             </li>
+            <li>
+              <Link to="/booking">My Bookings</Link>
+            </li>
             {user.isRestaurant ? (
               <>
                 <li>

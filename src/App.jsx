@@ -11,6 +11,7 @@ import ResForm from "./components/restaurant/restaurantForm";
 import MyRestaurants from "./components/MyRestaurant/MyRestaurant";
 import RestaurantDetails from "./components/restaurant/restaurantDetails";
 import MyResDetails from "./components/MyRestaurant/MyResDeatails";
+import BookingList from "./components/Booking/BookingList";
 //Services
 import * as authService from "../src/services/authService";
 import * as resService from "./services/restaurant";
@@ -79,6 +80,11 @@ const App = () => {
               path="/MyRestaurants"
               element={<MyRestaurants myrestaurant={myrestaurant} />}
             />
+             <Route
+              path="/booking"
+              element={<BookingList />}
+            />
+
             {/* show my restauarnt details */}
             <Route
               path="/MyRestaurants/:resId"
