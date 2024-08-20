@@ -59,9 +59,15 @@ const App = () => {
       
     };
     if (user) fetchAllbooks();
-  }, [Bookings]);
+  }, [user]);
 
-
+  const fetchAllbooks = async () => {
+    const bookData = await bookingService.index();
+    
+    setBookings(bookData);
+    
+    
+  };
 
 
 
@@ -75,6 +81,7 @@ const App = () => {
   const handleAddBooking = async (bookingData, resId) => {
     const newBooking = await bookingService.create(bookingData, resId);
     setBookings([...Bookings, newBooking]);
+    fetchAllbooks();
     navigate("/restaurants");
   };
 

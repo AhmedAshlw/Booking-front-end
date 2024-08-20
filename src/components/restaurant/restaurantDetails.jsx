@@ -8,7 +8,7 @@ import "./restaurant.css";
 //service
 import * as resService from "../../services/restaurant";
 
-const RestaurantDetails = ({ handleAddBooking }) => {
+const RestaurantDetails = ({ handleAddBooking}) => {
   const { resId } = useParams();
   const [res, setres] = useState();
   const [showComponent, setShowComponent] = useState(false);
