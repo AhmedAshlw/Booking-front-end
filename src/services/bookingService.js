@@ -38,4 +38,4 @@ const resBook = async (resId) => {
     console.log(error);
   }
 };
-export { create, index };
+export { create, index, resBook };

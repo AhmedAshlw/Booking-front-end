@@ -12,6 +12,7 @@ import MyRestaurants from "./components/MyRestaurant/MyRestaurant";
 import RestaurantDetails from "./components/restaurant/restaurantDetails";
 import MyResDetails from "./components/MyRestaurant/MyResDeatails";
 import BookingList from "./components/Booking/BookingList";
+import MyResBookings from "./components/MyRestaurant/MyResBookings";
 //Services
 import * as authService from "../src/services/authService";
 import * as resService from "./services/restaurant";
@@ -109,6 +110,14 @@ const App = () => {
               path="/MyRestaurants/:resId"
               element={<MyResDetails myrestaurant={myrestaurant} />}
             />
+
+            {/* show my restauarnt Bookings*/}
+            <Route  
+              path="/restaurants/:resId/Booking"
+              element={<MyResBookings />}
+            />
+
+
             <Route
               path="/restaurants/:resId"
               element={
