@@ -9,7 +9,7 @@ import "./restaurant.css";
 //service
 import * as resService from "../../services/restaurant";
 
-const RestaurantDetails = ({ handleAddBooking }) => {
+const RestaurantDetails = ({ handleAddBooking ,handleAddRating}) => {
   const { resId } = useParams();
   const [res, setres] = useState();
   const [showComponent, setShowComponent] = useState(false);
@@ -44,11 +44,11 @@ const RestaurantDetails = ({ handleAddBooking }) => {
         <div className="ShowRestCont">
           <h1>{res.name}</h1>
           <p>Location :{res.location}</p>
-          <p>Rating : {res.rating}</p>
+          <p>Rating : </p>
           <p>Category : {res.category}</p>
           <p>operatingHours :{res.operatingHours}</p>
           <div>
-            <Rating />
+            <Rating handleAddRating={handleAddRating}/>
           </div>
         </div>
         <div className="ShowBookingCont">

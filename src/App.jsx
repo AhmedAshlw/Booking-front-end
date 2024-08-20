@@ -125,6 +125,13 @@ const App = () => {
     fetchAllbooks();
     navigate('/booking');
   };
+//Rating handler
+
+const  handleAddRating =async(resId,formData)=>{
+const rate = await resService.AddRating(resId,formData)
+fetchAllres();
+
+}
 
 
 
@@ -178,7 +185,7 @@ const App = () => {
             <Route
               path="/restaurants/:resId"
               element={
-                <RestaurantDetails handleAddBooking={handleAddBooking} />
+                <RestaurantDetails handleAddBooking={handleAddBooking} handleAddRating={handleAddRating} />
               }
             />
           </>
