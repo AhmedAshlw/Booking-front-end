@@ -92,6 +92,8 @@ const App = () => {
     navigate(`/booking`);
   };
 
+
+  
   return (
     <>
       <NavBar user={user} handleSignout={handleSignout} />

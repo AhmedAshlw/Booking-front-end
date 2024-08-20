@@ -62,5 +62,18 @@ const show = async (bookId) => {
     console.log(error);
   }
 };
-
-export { create, index, resBook, update, show };
+// delete a booking
+const deleteBook = async (bookId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/Booking${bookId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+export { create, index, resBook, update, show, deleteBook };
