@@ -22,6 +22,7 @@ const App = () => {
   const [restaurants, setRestaurant] = useState([]);
   const [Bookings, setBookings] = useState([]);
   const [myrestaurant, setmyrestaurant] = useState([]);
+
   const handleSignout = () => {
     authService.signout();
     setUser(null);
@@ -47,6 +48,23 @@ const App = () => {
     if (user) fetchAllres();
   }, [user]);
 
+
+  useEffect(() => {
+    const fetchAllbooks = async () => {
+      const bookData = await bookingService.index();
+      
+      setBookings(bookData);
+      
+      
+    };
+    if (user) fetchAllbooks();
+  }, [user]);
+
+
+
+
+
+
   const handleAddRestaurant = async (restrData) => {
     const newRestaurant = await resService.create(restrData);
     setRestaurant([...restaurants, newRestaurant]);
@@ -58,6 +76,7 @@ const App = () => {
     setBookings([...Bookings, newBooking]);
     navigate("/restaurants");
   };
+
 
   return (
     <>
@@ -82,7 +101,7 @@ const App = () => {
             />
              <Route
               path="/booking"
-              element={<BookingList />}
+              element={<BookingList Bookings={Bookings}/>}
             />
 
             {/* show my restauarnt details */}
