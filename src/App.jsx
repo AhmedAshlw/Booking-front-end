@@ -18,6 +18,8 @@ import * as authService from "../src/services/authService";
 import * as resService from "./services/restaurant";
 import * as bookingService from "./services/bookingService";
 
+import "./App.css";
+
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
   const [restaurants, setRestaurant] = useState([]);
@@ -49,28 +51,20 @@ const App = () => {
     if (user) fetchAllres();
   }, [user]);
 
-
   useEffect(() => {
     const fetchAllbooks = async () => {
       const bookData = await bookingService.index();
-      
+
       setBookings(bookData);
-      
-      
     };
     if (user) fetchAllbooks();
   }, [user]);
 
   const fetchAllbooks = async () => {
     const bookData = await bookingService.index();
-    
+
     setBookings(bookData);
-    
-    
   };
-
-
-
 
   const handleAddRestaurant = async (restrData) => {
     const newRestaurant = await resService.create(restrData);
@@ -85,60 +79,60 @@ const App = () => {
     navigate("/restaurants");
   };
 
-
   return (
     <>
-      <NavBar user={user} handleSignout={handleSignout} />
+      <main className="mainCont">
+        <NavBar user={user} handleSignout={handleSignout} />
 
-      <Routes>
-        {user ? (
-          // Protected Routes:
-          <>
-            <Route path="/" element={<Dashboard user={user} />} />
-            <Route
-              path="/restaurants"
-              element={<Restaurant restaurants={restaurants} />}
-            />
-            <Route
-              path="/addRestaurant"
-              element={<ResForm handleAddRestaurant={handleAddRestaurant} />}
-            />
-            <Route
-              path="/MyRestaurants"
-              element={<MyRestaurants myrestaurant={myrestaurant} />}
-            />
-             <Route
-              path="/booking"
-              element={<BookingList Bookings={Bookings}/>}
-            />
+        <Routes>
+          {user ? (
+            // Protected Routes:
+            <>
+              <Route path="/" element={<Dashboard user={user} />} />
+              <Route
+                path="/restaurants"
+                element={<Restaurant restaurants={restaurants} />}
+              />
+              <Route
+                path="/addRestaurant"
+                element={<ResForm handleAddRestaurant={handleAddRestaurant} />}
+              />
+              <Route
+                path="/MyRestaurants"
+                element={<MyRestaurants myrestaurant={myrestaurant} />}
+              />
+              <Route
+                path="/booking"
+                element={<BookingList Bookings={Bookings} />}
+              />
 
-            {/* show my restauarnt details */}
-            <Route
-              path="/MyRestaurants/:resId"
-              element={<MyResDetails myrestaurant={myrestaurant} />}
-            />
+              {/* show my restauarnt details */}
+              <Route
+                path="/MyRestaurants/:resId"
+                element={<MyResDetails myrestaurant={myrestaurant} />}
+              />
 
-            {/* show my restauarnt Bookings*/}
-            <Route  
-              path="/restaurants/:resId/Booking"
-              element={<MyResBookings />}
-            />
+              {/* show my restauarnt Bookings*/}
+              <Route
+                path="/restaurants/:resId/Booking"
+                element={<MyResBookings />}
+              />
 
-
-            <Route
-              path="/restaurants/:resId"
-              element={
-                <RestaurantDetails handleAddBooking={handleAddBooking} />
-              }
-            />
-          </>
-        ) : (
-          // Public Route:
-          <Route path="/" element={<Landing />} />
-        )}
-        <Route path="/signup" element={<SignupForm setUser={setUser} />} />
-        <Route path="/signin" element={<SigninForm setUser={setUser} />} />
-      </Routes>
+              <Route
+                path="/restaurants/:resId"
+                element={
+                  <RestaurantDetails handleAddBooking={handleAddBooking} />
+                }
+              />
+            </>
+          ) : (
+            // Public Route:
+            <Route path="/" element={<Landing />} />
+          )}
+          <Route path="/signup" element={<SignupForm setUser={setUser} />} />
+          <Route path="/signin" element={<SigninForm setUser={setUser} />} />
+        </Routes>
+      </main>
     </>
   );
 };
