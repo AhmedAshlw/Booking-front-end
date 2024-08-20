@@ -1,17 +1,23 @@
+.vCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .welcoming {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 25px;
+  position: absolute;
+  color: white;
 }
 
 video {
-  width: 1348px;
+  width: 1349px;
 }
 
 .videoCont {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 18px;
 }
