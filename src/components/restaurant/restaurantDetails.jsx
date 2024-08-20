@@ -68,6 +68,9 @@ const RestaurantDetails = ({ handleAddBooking ,handleAddRating}) => {
           <div>
             <Rating  handleAddRating={handleAddRating}/>
           </div>
+          <p>Comments : {res.comments.map((comment)=>(
+                  <li> {comment.text}</li>
+          ))}</p>
           
         </div>
         <div className="ShowBookingCont">
