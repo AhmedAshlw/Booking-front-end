@@ -13,8 +13,8 @@ const Rating = ({handleAddRating}) => {
   const {resId} = useParams();
   const handleSubmit = async (e) => {
     e.preventDefault();
-     
-      handleAddRating(resId,formData);
+     if(rating >= 0){handleAddRating(resId,formData);}
+      
     setRating(null);
     
   };
@@ -38,7 +38,7 @@ const Rating = ({handleAddRating}) => {
               onChange={handleChange}
             ></input>
             <FaStar
-              size={50}
+              size={25}
               className="star"
               color={currentRating <= (hover || rating) ? "#FFC107" : "#E4E5E9"}
               onMouseEnter={() => setHover(currentRating)}
