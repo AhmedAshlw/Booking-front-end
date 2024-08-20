@@ -38,7 +38,7 @@ const MyResDetails = ({handleDeleteRes})=>{
       
         <h1>{res.name}</h1>
         <p>Location :{res.location}</p>
-        <p>Rating : {res.rating}</p>
+        
         <p>Category : {res.category}</p>
         <p>operatingHours :{res.operatingHours}</p>
         <Link to={`/restaurants/${resId}/Booking`}> Show all Bookings </Link>

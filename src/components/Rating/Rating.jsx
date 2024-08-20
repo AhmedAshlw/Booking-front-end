@@ -13,10 +13,13 @@ const Rating = ({handleAddRating}) => {
   const {resId} = useParams();
   const handleSubmit = async (e) => {
     e.preventDefault();
-     if(rating >= 0){handleAddRating(resId,formData);}
+     if(rating >= 0){
+      handleAddRating(resId,formData);
+     
+    }
       
     setRating(null);
-    
+   
   };
 
   const handleChange = (e) => {
@@ -48,7 +51,7 @@ const Rating = ({handleAddRating}) => {
         );
       })}
     </div>
-    <button type="submit">rate</button>
+    <button type="submit" >rate</button>
     </form>
   );
 };

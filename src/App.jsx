@@ -97,12 +97,14 @@ const App = () => {
   const handleUpdateRes = async (resId,formData) => {
     const updatedRestaurant = await resService.update(resId,formData);
     fetchAllres();
+    
     navigate(`/MyRestaurants/${resId}`);
   };
  
   const handleDeleteRes = async (resId) => {
     const DeletedRestaurant = await resService.deleteRes(resId);
     fetchAllres();
+    fetchAllbooks();
     navigate(`/MyRestaurants`);
   };
 
@@ -131,7 +133,11 @@ const  handleAddRating =async(resId,formData)=>{
 const rate = await resService.AddRating(resId,formData)
 fetchAllres();
 
+
 }
+
+
+
 
 
 

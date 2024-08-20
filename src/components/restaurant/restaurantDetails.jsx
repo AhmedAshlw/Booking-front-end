@@ -15,7 +15,7 @@ const RestaurantDetails = ({ handleAddBooking ,handleAddRating}) => {
   const { resId } = useParams();
   const [res, setres] = useState();
   const [showComponent, setShowComponent] = useState(false);
-  const [rate,setrate]=useState();
+  let avg ;
   useEffect(() => {
     async function getRes() {
       const resData = await resService.show(resId);
@@ -26,6 +26,9 @@ const RestaurantDetails = ({ handleAddBooking ,handleAddRating}) => {
 
     
   }, [resId]);
+
+
+
 
   if (!res) {
     return (
@@ -43,7 +46,7 @@ const RestaurantDetails = ({ handleAddBooking ,handleAddRating}) => {
       setShowComponent(true);
     }
   }
-let avg ;
+
 
 
   return (
@@ -60,10 +63,10 @@ let avg ;
           <p>Category : {res.category}</p>
           <p>operatingHours :{res.operatingHours}</p>
           <div>
-           <p>Avg Rating : <ShowRating avgRate={ res.rating.reduce((accumulator, currentObject) => accumulator + currentObject.rate, 0)/ res.rating.length}/></p> 
+           <p>Avg Rating : <ShowRating  avgRate={res.rating.reduce((accumulator, currentObject) => accumulator + currentObject.rate, 0)/ res.rating.length}/></p> 
           </div>
           <div>
-            <Rating handleAddRating={handleAddRating}/>
+            <Rating  handleAddRating={handleAddRating}/>
           </div>
           
         </div>
