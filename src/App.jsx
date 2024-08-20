@@ -95,11 +95,16 @@ const App = () => {
   };
 
   const handleUpdateRes = async (resId,formData) => {
-    const newRestaurant = await resService.update(resId,formData);
+    const updatedRestaurant = await resService.update(resId,formData);
     fetchAllres();
     navigate(`/MyRestaurants/${resId}`);
   };
-
+ 
+  const handleDeleteRes = async (resId) => {
+    const DeletedRestaurant = await resService.deleteRes(resId);
+    fetchAllres();
+    navigate(`/MyRestaurants`);
+  };
 
 // BOOKING HANDLERS
   const handleAddBooking = async (bookingData, resId) => {
@@ -156,7 +161,7 @@ const App = () => {
             {/* show my restauarnt details */}
             <Route
               path="/MyRestaurants/:resId"
-              element={<MyResDetails myrestaurant={myrestaurant} />}
+              element={<MyResDetails myrestaurant={myrestaurant} handleDeleteRes={handleDeleteRes} />}
             />
 
             {/* show my restauarnt Bookings*/}
@@ -167,7 +172,7 @@ const App = () => {
             {/* update restaurant*/}
                
                <Route  
-              path="/restaurants/:resId"
+              path="/update/:resId"
               element={<ResForm handleUpdateRes={handleUpdateRes}/>}
             />
             <Route

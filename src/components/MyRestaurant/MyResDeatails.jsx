@@ -8,11 +8,11 @@ import { Link } from "react-router-dom";
 //service
 import * as resService from "../../services/restaurant";
 
-const MyResDetails = ()=>{
+const MyResDetails = ({handleDeleteRes})=>{
 
     const { resId } = useParams();
     const [res, setres] = useState();
-    const [showComponent, setShowComponent] = useState(false);
+    
   
     useEffect(() => {
       async function getRes() {
@@ -42,7 +42,8 @@ const MyResDetails = ()=>{
         <p>Category : {res.category}</p>
         <p>operatingHours :{res.operatingHours}</p>
         <Link to={`/restaurants/${resId}/Booking`}> Show all Bookings </Link>
-        <Link to={`/restaurants/${resId}`}>Edit</Link>
+        <Link to={`/update/${resId}`}>Edit</Link>
+        <button onClick={()=>{handleDeleteRes(res._id)}} >Delete</button>
       </>
     );
 
