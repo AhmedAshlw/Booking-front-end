@@ -57,7 +57,7 @@ const App = () => {
     if (user.isRestaurant) {
       setmyrestaurant(
         resData.filter((res) => {
-          if (res.owner.username == user.username) {
+          if (res.owner._id == user._id) {
             return res;
           }
         })
@@ -91,7 +91,7 @@ const App = () => {
     const newRestaurant = await resService.create(restrData);
     setRestaurant([...restaurants, newRestaurant]);
     fetchAllres();
-    navigate("/restaurants");
+    navigate("/MyRestaurants");
   };
 
   const handleUpdateRes = async (resId,formData) => {
@@ -111,7 +111,7 @@ const App = () => {
     const newBooking = await bookingService.create(bookingData, resId);
     setBookings([...Bookings, newBooking]);
     fetchAllbooks();
-    navigate("/restaurants");
+    navigate("/booking");
   };
 
   const handleUpdateBook = async (bookId,formData) => {
