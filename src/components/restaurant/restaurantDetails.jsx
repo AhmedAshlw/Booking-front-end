@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import BookingForm from "../Booking/BookingForm";
+import Rating from "../Rating/Rating";
 
 import "./restaurant.css";
 
 //service
 import * as resService from "../../services/restaurant";
 
-const RestaurantDetails = ({ handleAddBooking}) => {
+const RestaurantDetails = ({ handleAddBooking }) => {
   const { resId } = useParams();
   const [res, setres] = useState();
   const [showComponent, setShowComponent] = useState(false);
@@ -46,6 +47,9 @@ const RestaurantDetails = ({ handleAddBooking}) => {
           <p>Rating : {res.rating}</p>
           <p>Category : {res.category}</p>
           <p>operatingHours :{res.operatingHours}</p>
+          <div>
+            <Rating />
+          </div>
         </div>
         <div className="ShowBookingCont">
           <button onClick={deriveButtonText}>Book</button>

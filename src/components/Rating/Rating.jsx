@@ -7,7 +7,7 @@ const Rating = () => {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
   return (
-    <div>
+    <div className="ratingStars">
       {[...Array(5)].map((star, idx) => {
         const currentRating = idx + 1;
         return (
