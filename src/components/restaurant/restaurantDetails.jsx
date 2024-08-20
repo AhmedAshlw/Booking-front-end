@@ -56,7 +56,7 @@ let avg ;
         <div className="ShowRestCont">
           <h1>{res.name}</h1>
           <p>Location :{res.location}</p>
-          <p>Rating : </p>
+          
           <p>Category : {res.category}</p>
           <p>operatingHours :{res.operatingHours}</p>
           <div>
