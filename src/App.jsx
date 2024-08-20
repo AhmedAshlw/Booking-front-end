@@ -92,8 +92,12 @@ const App = () => {
     navigate(`/booking`);
   };
 
+  const handleDeleteBook = async (BookId) => {
+    const deletedBook = await bookingService.deleteBook(BookId);
+    fetchAllbooks();
+    navigate('/booking');
+  };
 
-  
   return (
     <>
       <NavBar user={user} handleSignout={handleSignout} />
@@ -117,7 +121,7 @@ const App = () => {
             />
              <Route
               path="/booking"
-              element={<BookingList Bookings={Bookings}/>}
+              element={<BookingList Bookings={Bookings} handleDeleteBook={handleDeleteBook}/>}
             />
 
              <Route

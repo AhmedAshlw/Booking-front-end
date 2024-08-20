@@ -65,7 +65,7 @@ const show = async (bookId) => {
 // delete a booking
 const deleteBook = async (bookId) => {
   try {
-    const res = await fetch(`${BASE_URL}/Booking${bookId}`, {
+    const res = await fetch(`${BASE_URL}/Booking/${bookId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
