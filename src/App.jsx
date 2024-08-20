@@ -17,19 +17,24 @@ import MyResBookings from "./components/MyRestaurant/MyResBookings";
 import * as authService from "../src/services/authService";
 import * as resService from "./services/restaurant";
 import * as bookingService from "./services/bookingService";
+
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
   const [restaurants, setRestaurant] = useState([]);
   const [Bookings, setBookings] = useState([]);
   const [myrestaurant, setmyrestaurant] = useState([]);
+
   const handleSignout = () => {
     authService.signout();
     setUser(null);
   };
+
   const navigate = useNavigate();
+
   useEffect(() => {
     const fetchAllres = async () => {
       const resData = await resService.index();
+
       setRestaurant(resData);
       if (user.isRestaurant) {
         setmyrestaurant(
@@ -43,26 +48,41 @@ const App = () => {
     };
     if (user) fetchAllres();
   }, [user]);
+
+
   useEffect(() => {
     const fetchAllbooks = async () => {
       const bookData = await bookingService.index();
+      
       setBookings(bookData);
+      
+      
     };
     if (user) fetchAllbooks();
   }, [user]);
+
+
+
+
+
+
   const handleAddRestaurant = async (restrData) => {
     const newRestaurant = await resService.create(restrData);
     setRestaurant([...restaurants, newRestaurant]);
     navigate("/restaurants");
   };
+
   const handleAddBooking = async (bookingData, resId) => {
     const newBooking = await bookingService.create(bookingData, resId);
     setBookings([...Bookings, newBooking]);
     navigate("/restaurants");
   };
+
+
   return (
     <>
       <NavBar user={user} handleSignout={handleSignout} />
+
       <Routes>
         {user ? (
           // Protected Routes:
@@ -80,20 +100,24 @@ const App = () => {
               path="/MyRestaurants"
               element={<MyRestaurants myrestaurant={myrestaurant} />}
             />
-            <Route
+             <Route
               path="/booking"
-              element={<BookingList Bookings={Bookings} />}
+              element={<BookingList Bookings={Bookings}/>}
             />
+
             {/* show my restauarnt details */}
             <Route
               path="/MyRestaurants/:resId"
               element={<MyResDetails myrestaurant={myrestaurant} />}
             />
+
             {/* show my restauarnt Bookings*/}
-            <Route
+            <Route  
               path="/restaurants/:resId/Booking"
               element={<MyResBookings />}
             />
+
+
             <Route
               path="/restaurants/:resId"
               element={
@@ -111,4 +135,5 @@ const App = () => {
     </>
   );
 };
+
 export default App;

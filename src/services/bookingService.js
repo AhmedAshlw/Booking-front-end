@@ -27,5 +27,15 @@ const index = async () => {
     console.log(error);
   }
 };
-
-export { create, index };
+//show all booking for a restaurants Owners
+const resBook = async (resId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/restaurants/${resId}/Booking`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+export { create, index, resBook };
