@@ -48,8 +48,24 @@ const App = () => {
       }
     };
     if (user) fetchAllres();
-  }, []);
+  }, [user]);
+  useEffect(() => {
+    const fetchAllres = async () => {
+      const resData = await resService.index();
 
+      setRestaurant(resData);
+      if (user.isRestaurant) {
+        setmyrestaurant(
+          resData.filter((res) => {
+            if (res.owner.username == user.username) {
+              return res;
+            }
+          })
+        );
+      }
+    };
+    if (user) fetchAllres();
+  }, []);
   const fetchAllres = async () => {
     const resData = await resService.index();
 
