@@ -6,6 +6,7 @@
 
 - Trello Project Planning [here](https://trello.com/b/RRFwp2Ze/bookingcom-project)
 - a link to deployed app [here]()
+- a link to backend repository [here](https://github.com/VinsintQ/Booking-back-end)
 
 ### Scope :
 
@@ -13,7 +14,11 @@ A website where you can view restaurants and make a bookings , as restaurant own
 
 feature to add :
 
-- [x] user able to rate restaurant from 1-5 by stars , and able to view average rating
+- [x] user able to rate restaurant from 1-5 by stars , and able to view average rating .
+
+- [ ] RESTAURANT ABLE TO ACCEPT OR REJECT BOOKINGS .
+
+- [ ]
 
 ## pictures from the app
 
