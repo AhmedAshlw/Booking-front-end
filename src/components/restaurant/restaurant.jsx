@@ -15,6 +15,7 @@ const Restaurant = ({ restaurants }) => {
     <div className="restCont">
       <h1>All Restaurants</h1>
       <ul className="restCard">
+        {restaurants ? <>
         {restaurants.map((res) => (
           <li key={res._id}>
             {console.log(res.resimage)}
@@ -25,6 +26,13 @@ const Restaurant = ({ restaurants }) => {
             </Link>
           </li>
         ))}
+        
+        
+        
+        </> : <><main>
+        <h3>Loading...</h3>
+      </main></>}
+        
       </ul>
     </div>
   );
