@@ -88,6 +88,16 @@ const ResForm = ({ handleAddRestaurant,handleUpdateRes }) => {
           />
         </div>
         <div>
+          <label htmlFor="resimage">Restaurant Picture:</label>
+          <input
+            type="text"
+            id="resimage"
+            value={resData.resimage}
+            name="resimage"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
           <button type="submit" className="btn1">
            {resId ? <>Update</>:<>Create Restaurant</>} 
           </button>

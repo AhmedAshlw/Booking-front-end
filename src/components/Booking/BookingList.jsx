@@ -5,6 +5,7 @@ const BookingList = ({Bookings,handleDeleteBook})=>{
 
 
 return (<>
+             <h1>My Bookings</h1>
 <div  className = "myBookingContainer">
 <ul className="myBookingCard">
 {Bookings.map((book)=>(
