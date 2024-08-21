@@ -30,3 +30,19 @@ body, html {
     width: 100%;
     height: 100%;
 }
+.starter {
+    font-size: 3em;
+    margin-bottom: 0;
+    position: absolute;
+    color:  white;
+}
+
+.vhomeCont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+video{
+    width: 1349px;
+
+}
