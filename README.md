@@ -4,8 +4,8 @@
 
 ## Getting started :
 
-- Trello Project Planning [here]()
-- a link to deployed app [here](https://fitness-log-8da007ba5e00.herokuapp.com/)
+- Trello Project Planning [here](https://trello.com/b/RRFwp2Ze/bookingcom-project)
+- a link to deployed app [here]()
 
 ### Scope :
 
