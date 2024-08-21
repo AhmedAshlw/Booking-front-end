@@ -11,8 +11,8 @@ const MyRestaurants = ({ myrestaurant }) => {
         <h1>All Owned Restaurants</h1>
         <ul className="myrestCard">
           {myrestaurant.map((res) => (
-            <>
-              <li>
+            
+              <li key={res._id}>
               <Link to={`/MyRestaurants/${res._id}`}>
                   <>
                     <h1>{res.name}</h1>
@@ -20,7 +20,7 @@ const MyRestaurants = ({ myrestaurant }) => {
                   </>
                 </Link>
               </li>
-            </>
+            
           ))}
         </ul>
       </div>
