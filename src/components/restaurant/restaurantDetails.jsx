@@ -7,7 +7,7 @@ import Rating from "../Rating/Rating";
 import ShowRating from '../Rating/ShowRating'
 import CommentForm from "../comment/commentForm";
 //css
-import "./restaurant.css";
+import "./restaurantDetails.css";
 
 //service
 import * as resService from "../../services/restaurant";

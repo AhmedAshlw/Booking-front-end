@@ -1,9 +1,23 @@
-.BookingFormCont {
+.RestrBookCont {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+  width: 100%;
+  max-width: 600px; 
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #537774; 
+  box-shadow: 0 4px 8px rgba(83, 119, 116, 0.8);
+  background-image: url(https://i.pinimg.com/474x/56/92/0d/56920d546b7c2591e9853d27678b41c1.jpg);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  color: rgb(255, 255, 255); 
 }
+
 
 .btn2 {
   background-color: #66cdaa;

@@ -1,21 +1,21 @@
-.myBookingContainer {
+.myrestCont {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-h1 {
-  margin-top: 25px;
-  margin-bottom: 18px;
+  padding: 50px;
+  background-image: url(https://i.pinimg.com/564x/5e/3e/8e/5e3e8ed33bbd6dfd57a596a25a4b6f1f.jpg);
+  background-size: cover;
+  background-position: center;
+  color: white;
 }
 
 .myrestCard {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  gap: 20px;
   padding-left: 50px;
   padding-right: 50px;
   padding-top: 30px;
@@ -23,12 +23,39 @@ h1 {
 
 .myrestCard > li {
   background-color: #537774;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   margin: 10px;
+  padding: 20px;
   width: 200px;
   height: 230px;
   border-radius: 10px;
+  text-decoration: none;
+  list-style-type: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.myrestCard > li:hover {
+  transform: scale(1.05);
+}
+
+.myrestCard h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.myrestCard p {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+h1 {
+  margin-top: 25px;
+  margin-bottom: 18px;
+  font-size: 36px;
+  font-weight: bold;
 }
