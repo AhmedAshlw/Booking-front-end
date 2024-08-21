@@ -1,11 +1,11 @@
 // src/services/authService.js
 
-const BACKEND_URL = "http://localhost:3000"; // this is our Express API url
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 const Signup = async (formData) => {
   console.log("inside service");
   try {
-    const res = await fetch(`${BACKEND_URL}/users/signup`, {
+    const res = await fetch(`${BASE_URL}/users/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -25,7 +25,7 @@ const Signup = async (formData) => {
 
 const signin = async (user) => {
   try {
-    const res = await fetch(`${BACKEND_URL}/users/signin`, {
+    const res = await fetch(`${BASE_URL}/users/signin`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),

@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000"; // this is our Express API url
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 const index = async () => {
   try {
