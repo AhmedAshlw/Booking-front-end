@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import BookingForm from "../Booking/BookingForm";
 import Rating from "../Rating/Rating";
 import ShowRating from '../Rating/ShowRating'
-
+import CommentForm from "../comment/commentForm";
 //css
 import "./restaurant.css";
 
@@ -17,6 +17,11 @@ const RestaurantDetails = ({ handleAddBooking ,handleAddRating}) => {
   const [res, setres] = useState();
   const [showComponent, setShowComponent] = useState(false);
   let avg ;
+// comment handler
+  const handleAddComment = async (commentFormData) => {
+    
+  };
+
   useEffect(() => {
     async function getRes() {
       const resData = await resService.show(resId);
@@ -69,6 +74,11 @@ const RestaurantDetails = ({ handleAddBooking ,handleAddRating}) => {
           <div>
             <Rating  handleAddRating={handleAddRating}/>
           </div>
+           <CommentForm handleAddComment={handleAddComment}/>
+          <div>
+            
+          </div>
+
           <p>Comments : {res.comments.map((comment)=>(
                   <li> {comment.text}</li>
           ))}</p>
