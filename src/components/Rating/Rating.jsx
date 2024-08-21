@@ -1,26 +1,48 @@
 import { useState } from "react";
-import { FaStar } from "react-icons/fa";
+ import { FaStar } from "react-icons/fa";
 
 import "./Rating.css";
+import { useParams } from "react-router-dom";
 
-const Rating = () => {
-  const [rating, setRating] = useState(null);
-  const [hover, setHover] = useState(null);
+const Rating = ({handleAddRating}) => {
+  const [rating, setRating] = useState();
+  const [hover, setHover] = useState();
+  const [formData,setformData] =useState ({
+    rating: ""
+  })
+  const {resId} = useParams();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+     if(rating >= 0){
+      handleAddRating(resId,formData);
+     
+    }
+      
+    setRating(null);
+   
+  };
+
+  const handleChange = (e) => {
+    setformData({ [e.target.name]: e.target.value });
+  };
+
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
+    <div className="ratingStars">
       {[...Array(5)].map((star, idx) => {
         const currentRating = idx + 1;
         return (
           <label>
             <input
-              name="rating"
+              name="rate"
               type="radio"
               value={currentRating}
               onClick={() => setRating(currentRating)}
+              onChange={handleChange}
             ></input>
             <FaStar
-              size={50}
-              class="star"
+              size={25}
+              className="star"
               color={currentRating <= (hover || rating) ? "#FFC107" : "#E4E5E9"}
               onMouseEnter={() => setHover(currentRating)}
               onMouseLeave={() => setHover(null)}
@@ -29,6 +51,8 @@ const Rating = () => {
         );
       })}
     </div>
+    <button type="submit" >rate</button>
+    </form>
   );
 };
 

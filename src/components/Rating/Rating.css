@@ -1,7 +1,14 @@
-input[type="ratio"] {
+input[type="radio"] {
   display: none;
 }
 
 .star {
   cursor: pointer;
+}
+
+.ratingStars {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }

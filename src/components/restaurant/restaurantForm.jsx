@@ -1,9 +1,26 @@
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import "./restaurant.css";
 
-const ResForm = ({ handleAddRestaurant }) => {
-  const [restrData, setRestrData] = useState({
+//Services 
+import * as resService from "../../services/restaurant";
+
+const ResForm = ({ handleAddRestaurant,handleUpdateRes }) => {
+  const {resId} = useParams();
+ 
+  useEffect(() => {
+    const fetchRes = async () => {
+      const bookData = await resService.show(resId)
+      
+      
+      setRestrData(bookData);
+    };
+    if (resId) fetchRes();
+  }, [resId]);
+  
+
+
+  const [resData, setRestrData] = useState({
     name: "",
     location: "",
     category: "",
@@ -11,12 +28,18 @@ const ResForm = ({ handleAddRestaurant }) => {
   });
 
   const handleChange = (e) => {
-    setRestrData({ ...restrData, [e.target.name]: e.target.value });
+    setRestrData({ ...resData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    handleAddRestaurant(restrData);
+    if(resId){
+     
+    handleUpdateRes(resId,resData);
+    } else {
+      handleAddRestaurant(resData);
+    }
+    
   };
 
   return (
@@ -28,7 +51,7 @@ const ResForm = ({ handleAddRestaurant }) => {
           <input
             type="text"
             id="name"
-            value={restrData.name}
+            value={resData.name}
             name="name"
             onChange={handleChange}
           />
@@ -38,7 +61,7 @@ const ResForm = ({ handleAddRestaurant }) => {
           <input
             type="text"
             id="location"
-            value={restrData.location}
+            value={resData.location}
             name="location"
             onChange={handleChange}
           />
@@ -48,7 +71,7 @@ const ResForm = ({ handleAddRestaurant }) => {
           <input
             type="text"
             id="category"
-            value={restrData.category}
+            value={resData.category}
             name="category"
             onChange={handleChange}
           />
@@ -58,14 +81,14 @@ const ResForm = ({ handleAddRestaurant }) => {
           <input
             type="text"
             id="operatingHours"
-            value={restrData.operatingHours}
+            value={resData.operatingHours}
             name="operatingHours"
             onChange={handleChange}
           />
         </div>
         <div>
           <button type="submit" className="btn1">
-            Create Restaurant
+           {resId ? <>Update</>:<>Create Restaurant</>} 
           </button>
         </div>
       </form>

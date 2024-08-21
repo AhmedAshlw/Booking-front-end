@@ -50,6 +50,20 @@ const App = () => {
     if (user) fetchAllres();
   }, [user]);
 
+  const fetchAllres = async () => {
+    const resData = await resService.index();
+
+    setRestaurant(resData);
+    if (user.isRestaurant) {
+      setmyrestaurant(
+        resData.filter((res) => {
+          if (res.owner._id == user._id) {
+            return res;
+          }
+        })
+      );
+    }
+  };
 
   useEffect(() => {
     const fetchAllbooks = async () => {
@@ -71,19 +85,35 @@ const App = () => {
   };
 
 
-
+//RESTAURANT HANDLERS
 
   const handleAddRestaurant = async (restrData) => {
     const newRestaurant = await resService.create(restrData);
     setRestaurant([...restaurants, newRestaurant]);
-    navigate("/restaurants");
+    fetchAllres();
+    navigate("/MyRestaurants");
   };
 
+  const handleUpdateRes = async (resId,formData) => {
+    const updatedRestaurant = await resService.update(resId,formData);
+    fetchAllres();
+    
+    navigate(`/MyRestaurants/${resId}`);
+  };
+ 
+  const handleDeleteRes = async (resId) => {
+    const DeletedRestaurant = await resService.deleteRes(resId);
+    fetchAllres();
+    fetchAllbooks();
+    navigate(`/MyRestaurants`);
+  };
+
+// BOOKING HANDLERS
   const handleAddBooking = async (bookingData, resId) => {
     const newBooking = await bookingService.create(bookingData, resId);
     setBookings([...Bookings, newBooking]);
     fetchAllbooks();
-    navigate("/restaurants");
+    navigate("/booking");
   };
 
   const handleUpdateBook = async (bookId,formData) => {
@@ -97,6 +127,19 @@ const App = () => {
     fetchAllbooks();
     navigate('/booking');
   };
+//Rating handler
+
+const  handleAddRating =async(resId,formData)=>{
+const rate = await resService.AddRating(resId,formData)
+fetchAllres();
+
+
+}
+
+
+
+
+
 
   return (
     <>
@@ -131,7 +174,7 @@ const App = () => {
             {/* show my restauarnt details */}
             <Route
               path="/MyRestaurants/:resId"
-              element={<MyResDetails myrestaurant={myrestaurant} />}
+              element={<MyResDetails myrestaurant={myrestaurant} handleDeleteRes={handleDeleteRes} />}
             />
 
             {/* show my restauarnt Bookings*/}
@@ -139,12 +182,16 @@ const App = () => {
               path="/restaurants/:resId/Booking"
               element={<MyResBookings />}
             />
-
-
+            {/* update restaurant*/}
+               
+               <Route  
+              path="/update/:resId"
+              element={<ResForm handleUpdateRes={handleUpdateRes}/>}
+            />
             <Route
               path="/restaurants/:resId"
               element={
-                <RestaurantDetails handleAddBooking={handleAddBooking} />
+                <RestaurantDetails handleAddBooking={handleAddBooking} handleAddRating={handleAddRating} />
               }
             />
           </>
