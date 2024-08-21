@@ -42,9 +42,11 @@ h1 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: rgb(195, 196, 187);
-  margin-top: 30px;
+  background-color: rgb(50, 181, 174);
+  margin-top: 18px; /* Adjusted margin */
+  margin-bottom: 20px; /* Added margin */
   border-radius: 20px;
+  padding: 20px; /* Added padding */
 }
 
 .ShowRestCont {

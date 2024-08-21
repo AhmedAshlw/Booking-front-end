@@ -1,3 +1,4 @@
+//restaurant component
 import { Link } from "react-router-dom";
 import "./restaurant.css";
 const Restaurant = ({ restaurants }) => {
