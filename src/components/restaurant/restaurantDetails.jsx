@@ -11,15 +11,20 @@ import "./restaurant.css";
 
 //service
 import * as resService from "../../services/restaurant";
-
+import commentService from "../../services/commentService";
 const RestaurantDetails = ({ handleAddBooking ,handleAddRating}) => {
   const { resId } = useParams();
   const [res, setres] = useState();
   const [showComponent, setShowComponent] = useState(false);
   let avg ;
 // comment handler
-  const handleAddComment = async (commentFormData) => {
-    
+  const handleAddComment = async (formData) => {
+    const newComment = await commentService.create(resId, formData)
+
+    const copyRes = {...res}
+    copyRes.comments.push(newComment)
+
+    setres(copyRes);
   };
 
   useEffect(() => {
