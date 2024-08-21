@@ -9,9 +9,7 @@ const Landing = () => {
         <div className="vhomeCont">
           <div className="starter">
             <h1>
-              Indulge in a world-class dining experience with our members-only
-              privileges. Sign up now to secure premium reservations, exclusive
-              insights, and tempting offers.
+            There is no sincere love than the love of food
             </h1>
           </div>
           <video autoPlay muted loop id="myVideo">

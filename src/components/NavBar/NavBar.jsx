@@ -5,9 +5,7 @@ import "./NavBar.css";
 const NavBar = ({ user, handleSignout }) => {
   return (
     <>
-      <div className="wName">
-        <h1>Fork Finder</h1>
-      </div>
+   
       {user ? (
         <nav className="Header">
           <ul>
