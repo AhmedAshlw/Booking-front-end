@@ -11,8 +11,12 @@
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: #537774; 
+    box-shadow: 0 4px 8px rgba(83, 119, 116, 0.8);
+    background-image: url(https://i.pinimg.com/736x/84/b6/c2/84b6c21e06d62ec6be1c60ea9b333622.jpg);
+    background-size: cover;
+    background-position: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    color: white; 
+    color: rgb(255, 255, 255); 
   }
   
   .newRestrCont h1 {
@@ -54,7 +58,7 @@
   }
   
   .newRestrCont button.btn1:hover {
-    background-color: #057e74;
+    background-color: #d18569;
     transform: scale(1.05); 
   }
   

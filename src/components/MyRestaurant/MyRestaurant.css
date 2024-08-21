@@ -1,8 +1,13 @@
-.myBookingContainer {
+.myrestCont {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  padding: 50px;
+  background-image: url(https://i.pinimg.com/564x/5e/3e/8e/5e3e8ed33bbd6dfd57a596a25a4b6f1f.jpg);
+  background-size: cover;
+  background-position: center;
+  color: white;
 }
 
 .myrestCard {

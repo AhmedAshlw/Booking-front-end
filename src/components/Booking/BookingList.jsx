@@ -5,9 +5,10 @@ import "./BookingList.css";
 const BookingList = ({ Bookings, handleDeleteBook }) => {
   return (
     <>
+     <h1>My Bookings</h1>
       <div className="vhomeCont">
         <div className="starter">
-          <h1>My Bookings</h1>
+         
         </div>
         <video autoPlay muted loop id="myVideoo">
           <source
