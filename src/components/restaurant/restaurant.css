@@ -28,7 +28,7 @@ h1 {
   justify-content: space-around;
   align-items: center;
   margin: 10px;
-  width: 200px;
+  width: 420px;
   height: 230px;
   border-radius: 10px;
   text-decoration: none;
@@ -108,4 +108,11 @@ label {
 .btn1:hover {
   background-color: #057e74;
   color: white;
+}
+
+.resimage{
+width: 420px;
+  height: 100px;
+
+
 }

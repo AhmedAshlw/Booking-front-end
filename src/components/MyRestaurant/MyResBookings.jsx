@@ -1,3 +1,4 @@
+// this component is used to show the bookings of the restaurant
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 //services
