@@ -1,0 +1,69 @@
+/* Restaurant form */
+.newRestrCont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    width: 100%;
+    max-width: 600px; 
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #537774; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    color: white; 
+  }
+  
+  .newRestrCont h1 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .newRestrCont label {
+    font-size: 18px;
+    display: flex;
+    justify-content: start;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+  
+  .newRestrCont input {
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    display: block;
+    border-radius: 8px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+  
+  .newRestrCont button.btn1 {
+    background-color: #66cdaa;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%; 
+  }
+  
+  .newRestrCont button.btn1:hover {
+    background-color: #057e74;
+    transform: scale(1.05); 
+  }
+  
+  .newRestrCont .resimage {
+    width: 100%;
+    max-width: 420px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border-radius: 8px;
+  }
+  

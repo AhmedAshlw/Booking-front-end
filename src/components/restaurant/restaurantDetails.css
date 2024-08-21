@@ -1,0 +1,73 @@
+/* restaurant details */
+.RestrBookCont {
+    display: flex;
+    flex-direction: raw;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #537774;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: white;
+    max-width: 800px;
+    height: 100%;
+    }
+
+    .ShowRestCont {
+        text-align: left;
+        margin-bottom: 30px;
+    }
+
+    .ShowRestCont h1 {
+        margin-bottom: 20px;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .ShowRestCont p {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .ShowBookingCont {
+        text-align: center;
+        margin-bottom: 30px;
+      
+    }
+
+    .ShowBookingCont button {
+        background-color: #ff6347;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        margin: 10px 0;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .ShowBookingCont button:hover {
+        background-color: #057e74;
+        transform: scale(1.05);
+    }
+
+    .ShowRestCont li {
+  background-color: #66cdaa;
+  border-radius: 8px;
+  padding: 10px;
+    margin: 5px 0;
+    list-style-type: none;
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .ShowRestCont .rating {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 0;
+    }

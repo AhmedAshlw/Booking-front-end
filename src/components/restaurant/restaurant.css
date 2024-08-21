@@ -1,38 +1,38 @@
 .restCont {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-h1 {
-  margin-top: 25px;
-  margin-bottom: 18px;
+  margin-top: 50px;
 }
 
 .restCard {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 30px;
+gap: 20px;
 }
 
 .restCard > li {
   background-color: #537774;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   margin: 10px;
+  padding: 20px;
   min-width: 420px;
   min-height: 230px;
   border-radius: 10px;
   text-decoration: none;
   list-style-type: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.restCard > li:hover {
+  transform: scale(1.05);
 }
 
 .RestrBookCont {
@@ -89,25 +89,6 @@ label {
   font-size: 18px;
   display: flex;
   justify-content: start;
-}
-
-.btn1 {
-  background-color: #66cdaa;
-  color: black;
-  margin: 10px;
-  margin-top: 30px;
-  padding: 14px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 8px;
-  font-size: 18px;
-  border: none;
-}
-
-.btn1:hover {
-  background-color: #057e74;
-  color: white;
 }
 
 .resimage{

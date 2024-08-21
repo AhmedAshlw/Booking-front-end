@@ -1,7 +1,7 @@
 //restaurant form
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./restaurant.css";
+import "./restaurantForm.css";
 
 //Services 
 import * as resService from "../../services/restaurant";
@@ -26,6 +26,7 @@ const ResForm = ({ handleAddRestaurant,handleUpdateRes }) => {
     location: "",
     category: "",
     operatingHours: "",
+    resimage: "",
   });
 
   const handleChange = (e) => {
