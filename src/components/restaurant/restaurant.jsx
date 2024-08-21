@@ -9,7 +9,7 @@ const Restaurant = ({ restaurants }) => {
         {restaurants.map((res) => (
           <li key={res._id}>
             {console.log(res.resimage)}
-            <img className="resimage" src={res.resimage} alt="background Image" />
+       <div className="imgr">     <img className="resimage" src={res.resimage} alt="background Image" /></div>
             <Link to={`/restaurants/${res._id}`}>
               <h1>{res.name}</h1>
               <p>{res.category}</p>
