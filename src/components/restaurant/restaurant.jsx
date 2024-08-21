@@ -2,6 +2,15 @@ import { Link } from "react-router-dom";
 import "./restaurant.css";
 
 const Restaurant = ({ restaurants }) => {
+
+  if (!restaurants) {
+    return (
+      <main>
+        <h3>Loading...</h3>
+      </main>
+    );
+  }
+ 
   return (
     <div className="restCont">
       <h1>All Restaurants</h1>

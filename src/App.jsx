@@ -48,7 +48,7 @@ const App = () => {
       }
     };
     if (user) fetchAllres();
-  }, []);
+  }, [user]);
 
   const fetchAllres = async () => {
     const resData = await resService.index();
