@@ -10,8 +10,9 @@ return (<>
 <ul className="myBookingCard">
 {Bookings.map((book)=>(
 <>
+
 {book?.restaurantId?.name ? (
-  <li className="BookingList">
+  <li className="BookingList" key={book._id}>
     <h1>{book?.restaurantId?.name}</h1>
     <p>Seats: {book.seats}</p>
     <p>Date: {new Date(book.date).toLocaleDateString()}</p>
