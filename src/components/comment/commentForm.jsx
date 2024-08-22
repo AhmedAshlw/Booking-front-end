@@ -24,7 +24,8 @@ const CommentForm = (props) => {
         id="text-input"
         value={formData.text}
         onChange={handleChange}
-      />
+      /> 
+      <br />
       <button type="submit">SUBMIT COMMENT</button>
     </form>
   );

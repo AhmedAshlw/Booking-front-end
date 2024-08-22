@@ -10,7 +10,9 @@ background-position: center;
 color: white;
 }
 
-
+h1 {
+  color: black;
+}
 .restCard {
   display: flex;
   justify-content: center;

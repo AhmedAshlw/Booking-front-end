@@ -5,8 +5,9 @@ import "./BookingList.css";
 const BookingList = ({ Bookings, handleDeleteBook }) => {
   return (
     <>
-     <h1>My Bookings</h1>
+     
       <div className="vhomeCont">
+       
         <div className="starter">
          
         </div>
@@ -16,7 +17,9 @@ const BookingList = ({ Bookings, handleDeleteBook }) => {
             type="video/mp4"
           />
         </video>
+        
         <div className="myBookingContainer">
+
           <ul className="myBookingCard">
             {Bookings.map((book) => (
               <>

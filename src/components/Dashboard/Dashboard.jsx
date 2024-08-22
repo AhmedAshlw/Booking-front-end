@@ -7,7 +7,7 @@ const Dashboard = ({ user }) => {
     <div>
       <main>
         <div className="vCont">
-          <div className="welcoming">{<h1>Welcome, {user.username}</h1>}</div>
+         
           <div className="videoCont">
             <video  autoPlay muted loop id="myVideo">
               <source
