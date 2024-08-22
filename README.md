@@ -18,7 +18,7 @@ feature to add :
 
 - [ ] RESTAURANT ABLE TO ACCEPT OR REJECT BOOKINGS .
 
-- [ ]
+- [ ] Admin to manage to website
 
 ## pictures from the app
 
