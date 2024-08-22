@@ -22,15 +22,17 @@ feature to add :
 
 ## pictures from the app
 
-![Landing Page]()
+![Landing Page](./pictures/landing.png)
 
-![add book]()
+![signin](./pictures/signin.png)
 
-![add restauarnt]()
+![show booking](./pictures/showBookings.png)
 
-![view restaurant details ]()
+![add book](./pictures/Book.png)
 
-![view my bookings ]()
+![restauarnts](./pictures/restaurants.png)
+
+![view restaurant details ](./pictures/restauratndetails.png)
 
 ## technologies used
 
