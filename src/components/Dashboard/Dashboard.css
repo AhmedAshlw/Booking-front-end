@@ -13,11 +13,13 @@
 }
 
 video {
-  width: 1349px;
+  width: 100vw;
+  
 }
 
 .videoCont {
   display: flex;
   justify-content: center;
   align-items: center;
+ 
 }

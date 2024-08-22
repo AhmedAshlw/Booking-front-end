@@ -97,15 +97,19 @@ label {
   justify-content: start;
 }
 
-.resimage{
-width: 420px;
-  height: 100px;
-
-
+.imgr {
+  position: relative;
+  width: 400px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
-.resimage img{
+.resimage {
+  position: absolute;
   width: 100%;
-  height: 100%;
-  border-radius: 10px;
+  height: auto;
+  bottom: -100%;
+  transition: bottom 0.5s ease-in-out;
+  
 }

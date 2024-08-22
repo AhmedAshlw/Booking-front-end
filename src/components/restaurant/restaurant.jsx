@@ -17,14 +17,17 @@ const Restaurant = ({ restaurants }) => {
       <ul className="restCard">
         {restaurants ? <>
         {restaurants.map((res) => (
+          
           <li key={res._id}>
+            <Link to={`/restaurants/${res._id}`}>
             {console.log(res.resimage)}
        <div className="imgr">     <img className="resimage" src={res.resimage} alt="background Image" /></div>
-            <Link to={`/restaurants/${res._id}`}>
+            
               <h1>{res.name}</h1>
               <p>{res.category}</p>
-            </Link>
+           </Link>  
           </li>
+         
         ))}
         
         
