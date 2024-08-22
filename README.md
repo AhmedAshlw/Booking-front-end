@@ -5,7 +5,7 @@
 ## Getting started :
 
 - Trello Project Planning [here](https://trello.com/b/RRFwp2Ze/bookingcom-project)
-- a link to deployed app [here](https://resbooking-hl061wlo3-mueens-projects-b1fddfae.vercel.app)
+- a link to deployed app [here](https://resbooking.vercel.app/)
 - a link to backend repository [here](https://github.com/VinsintQ/Booking-back-end)
 
 ### Scope :
