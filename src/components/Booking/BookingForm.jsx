@@ -82,6 +82,7 @@ const BookingForm = ({ handleAddBooking ,handleUpdateBook}) => {
             id="seats"
             value={bookingData.seats}
             name="seats"
+            min="1"
             onChange={handleChange}
           />
         </div>
