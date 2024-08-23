@@ -115,8 +115,8 @@ const  handleAddRating =async(resId,formData)=>{
             
           </div>
 
-          <p>Comments : {res.comments.map((comment)=>(
-                  <li> {comment.text}</li>
+          <p className="comments">Comments : {res.comments.map((comment)=>(
+                  <li className="comments"> {comment.text}</li>
           ))}</p>
           
         </div>

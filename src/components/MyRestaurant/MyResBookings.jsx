@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 //services
 
 import * as BookServices from '../../services/bookingService'
-
+//css 
+import "../Booking/BookingList.css";
 
 const MyResBookings = ()=>{
 
@@ -15,37 +16,47 @@ const MyResBookings = ()=>{
     useEffect(() => {
         const getbook=async()=> {
           const resData = await BookServices.resBook(resId);
+          
           setresbooks(resData);
+          
         }
         getbook();
       }, [resId]);
 
-return(<>
 
-{!resbooks ? <h3>there is no Booking</h3>: <>
-<ul>
+
+
+return(
+
+
+
+ 
+<div className="myBookingContainer">
+
+<ul className="myBookingCard">
 {resbooks.map((book)=>(
 <li key={book._id}>
     <p>Customer Name : {book.userId.username}</p>
     <p>Seats : {book.seats}</p>
-    <p>Date : {book.date}</p>
+    <p>Date : {new Date(book.date).toLocaleDateString()}</p>
     <p>Time :{book.time}</p>
 
 
 </li>
 
 ))}
+
 </ul>
-</>
+</div>
 
 
-}
+)
 
 
 
 
 
-</>)
+
 
 
 

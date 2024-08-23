@@ -4,11 +4,17 @@
   justify-content: center;
   align-items: center;
   padding: 50px;
-  background-image: url(https://i.pinimg.com/564x/5e/3e/8e/5e3e8ed33bbd6dfd57a596a25a4b6f1f.jpg);
+  
   background-size: cover;
   background-position: center;
   color: white;
 }
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
 
 .myrestCard {
   display: flex;
@@ -21,7 +27,7 @@
   padding-top: 30px;
 }
 
-.myrestCard > li {
+.myrestCard  li {
   background-color: #537774;
   color: white;
   display: flex;
@@ -39,7 +45,7 @@
   transition: transform 0.2s;
 }
 
-.myrestCard > li:hover {
+.myrestCard  li:hover {
   transform: scale(1.05);
 }
 

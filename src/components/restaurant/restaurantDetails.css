@@ -8,7 +8,10 @@ border-radius: 5px;
 #black{
     color: #000000;
 }
+.comments {
 
+    color: white;
+}
 .RestrBookCont {
     display: flex;
     flex-direction: raw;
