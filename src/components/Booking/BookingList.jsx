@@ -30,7 +30,7 @@ const BookingList = ({ Bookings, handleDeleteBook }) => {
                     <p>Date: {new Date(book.date).toLocaleDateString()}</p>
                     <p>Time: {book.time}</p>
                     <div>
-                      <button>
+                      <button >
                         <Link to={`/restaurants/${book._id}/edit`}>Edit</Link>
                       </button>
                       <button onClick={() => { handleDeleteBook(book._id) }}>

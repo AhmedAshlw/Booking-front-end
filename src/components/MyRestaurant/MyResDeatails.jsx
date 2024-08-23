@@ -44,10 +44,10 @@ const MyResDetails = ({handleDeleteRes})=>{
         <p>Category : {res.category}</p>
         <p>operatingHours :{res.operatingHours}</p>
         <div className="flex">
-        <Link to={`/restaurants/${resId}/Booking`}> Show all Bookings </Link>
-        <Link to={`/update/${resId}`}>Edit</Link>
+        <Link to={`/restaurants/${resId}/Booking`} className="nohover"> Show all Bookings </Link>
+        <Link to={`/update/${resId}`} className="nohover">Edit</Link>
         <button onClick={()=>{handleDeleteRes(res._id)}} >Delete</button>
-</div>
+          </div>
         </div>
         </div>
       </>

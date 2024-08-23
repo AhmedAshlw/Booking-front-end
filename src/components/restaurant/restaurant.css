@@ -12,6 +12,7 @@ color: white;
 h1 {
   color: black;
 }
+
 .restCard {
   display: flex;
   justify-content: center;
@@ -20,7 +21,7 @@ h1 {
 gap: 20px;
 }
 
-.restCard > li {
+.restCard  li {
   background-color: #537774;
   color: white;
   display: flex;
@@ -38,8 +39,27 @@ gap: 20px;
   transition: transform 0.2s;
 }
 
-.restCard > li:hover {
+.restCard  li:hover {
   transform: scale(1.05);
+  text-decoration: none; 
+  color: inherit; 
+}
+
+
+.restLink {
+  text-decoration: none; 
+  color: inherit; 
+}
+
+.restLink:hover {
+  text-decoration: none; 
+  color: inherit; 
+}
+
+
+ul a :hover {
+  text-decoration: none; 
+  color: inherit; 
 }
 
 .RestrBookCont {

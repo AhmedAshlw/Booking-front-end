@@ -5,6 +5,14 @@ button {border: 0px;
 border-radius: 5px;
 }
     
+.nohover {
+    text-decoration: none;
+}
+
+.flex a :hover {
+
+    text-decoration: none;
+}
 #black{
     color: #000000;
 }

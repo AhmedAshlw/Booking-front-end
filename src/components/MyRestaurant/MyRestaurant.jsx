@@ -1,19 +1,20 @@
 //my restaurant
 import { Link } from "react-router-dom";
 
-import "./MyRestaurant.css";
 
+import "../restaurant/restaurant.css"
 const MyRestaurants = ({ myrestaurant }) => {
   return (
     <>
 
-      <div className="myrestCont">
+      <div className="restCont">
         <h1>All Owned Restaurants</h1>
-        <ul className="myrestCard">
+        <ul className="restCard">
+        {myrestaurant ? <>
           {myrestaurant.map((res) => (
-            <Link to={`/MyRestaurants/${res._id}`}>
-              <li key={res._id}>
-              
+            <Link key={res._id} className="restLink" to={`/MyRestaurants/${res._id}`}>
+              <li >
+              <div className="imgr">     <img className="resimage" src={res.resimage} alt="background Image" /></div>
                   <>
                     <h1>{res.name}</h1>
                     <p>{res.category}</p>
@@ -22,6 +23,10 @@ const MyRestaurants = ({ myrestaurant }) => {
               </li>
             </Link>
           ))}
+
+</> : <><main>
+        <h3>Loading...</h3>
+      </main></>}
         </ul>
       </div>
     </>
