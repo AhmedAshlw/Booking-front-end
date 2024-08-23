@@ -12,11 +12,42 @@ import "./restaurantDetails.css";
 //service
 import * as resService from "../../services/restaurant";
 import commentService from "../../services/commentService";
-const RestaurantDetails = ({ handleAddBooking ,handleAddRating}) => {
+const RestaurantDetails = ({ handleAddBooking}) => {
   const { resId } = useParams();
   const [res, setres] = useState();
   const [showComponent, setShowComponent] = useState(false);
-  let avg ;
+  const [rating, setRating] = useState();
+  
+  
+
+
+  async function getrate() {
+    const fetchrate = await resService.getRating(resId);
+    setRating(fetchrate.averageRating)
+  }
+
+
+  useEffect(() => {
+    async function getrate() {
+      const fetchrate = await resService.getRating(resId);
+      setRating(fetchrate.averageRating)
+    }
+    
+   getrate();
+    
+  }, []);
+
+
+//Rating handler
+
+const  handleAddRating =async(resId,formData)=>{
+  const rate = await resService.AddRating(resId,formData)
+ getrate();
+  
+}
+
+
+
 // comment handler
   const handleAddComment = async (formData) => {
     const newComment = await commentService.create(resId, formData)
@@ -74,7 +105,7 @@ const RestaurantDetails = ({ handleAddBooking ,handleAddRating}) => {
           <p>Category : {res.category}</p>
           <p>operatingHours :{res.operatingHours}</p>
           <div>
-           <p>Avg Rating : <ShowRating  avgRate={res.rating.reduce((accumulator, currentObject) => accumulator + currentObject.rate, 0)/ res.rating.length}/></p> 
+           <p>Avg Rating : <ShowRating rating={rating} /></p> 
           </div>
           <div>
             <Rating  handleAddRating={handleAddRating}/>

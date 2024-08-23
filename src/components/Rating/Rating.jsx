@@ -4,6 +4,8 @@ import { useState } from "react";
 import "./Rating.css";
 import { useParams } from "react-router-dom";
 
+import * as resService from  '../../services/restaurant';
+
 const Rating = ({handleAddRating}) => {
   const [rating, setRating] = useState();
   const [hover, setHover] = useState();
@@ -14,8 +16,9 @@ const Rating = ({handleAddRating}) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
      if(rating >= 0){
-      handleAddRating(resId,formData);
-     
+    await  handleAddRating(resId,formData);
+      
+    
     }
       
     setRating(null);

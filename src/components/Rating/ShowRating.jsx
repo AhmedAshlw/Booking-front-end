@@ -1,15 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
  import { FaStar } from "react-icons/fa";
-
-import "./Rating.css";
 import { useParams } from "react-router-dom";
 
-const Rating = ({avgRate}) => {
-  const [rating, setRating] = useState(avgRate);
+
+//Services
+import * as resService from  '../../services/restaurant';
+
+
+//css
+import "./Rating.css";
+
+
+const Rating = ({rating}) => {
+ 
   const [hover, setHover] = useState();
 
  const {resId} = useParams();
  
+
 
   
   return (
