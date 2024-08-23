@@ -12,6 +12,15 @@ const BookingForm = ({ handleAddBooking ,handleUpdateBook}) => {
     seats: "",
   });
 
+
+
+   // Calculate tomorrow date
+   const tomorrow = new Date();
+   tomorrow.setDate(tomorrow.getDate() + 1); 
+   const minDate = tomorrow.toISOString().split('T')[0];
+
+
+
   const { bookId,resId } = useParams();
 
   useEffect(() => {
@@ -45,15 +54,16 @@ const BookingForm = ({ handleAddBooking ,handleUpdateBook}) => {
     <main className="BookingFormCont">
       <h3>Select Your Booking Details</h3>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="date">Date:</label>
-          <input
-            type="Date"
-            id="date"
-            value={bookingData.date}
-            name="date"
-            onChange={handleChange}
-          />
+            <div>
+  <label htmlFor="date">Date:</label>
+                <input
+                   type="date"
+                   id="date"
+                   value={bookingData.date}
+                   name="date"
+                   min={minDate}
+                   onChange={handleChange}
+             />
         </div>
         <div>
           <label htmlFor="time">Time:</label>
