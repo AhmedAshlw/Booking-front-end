@@ -26,7 +26,7 @@ const Rating = ({rating}) => {
       {[...Array(5)].map((star, idx) => {
         const currentRating = idx + 1;
         return (
-          <label>
+          <label key={idx}>
 
           
             <FaStar

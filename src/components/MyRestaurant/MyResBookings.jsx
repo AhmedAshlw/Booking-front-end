@@ -23,7 +23,9 @@ const MyResBookings = ()=>{
         getbook();
       }, [resId]);
 
-
+if (resbooks.length === 0) {
+    return <h1>No Bookings</h1>;
+  }
 
 
 return(

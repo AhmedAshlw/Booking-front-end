@@ -99,13 +99,13 @@ const  handleAddRating =async(resId,formData)=>{
     
       <div className="RestrBookCont">
         <div className="ShowRestCont">
-          <h1>{res.name}</h1>
+          <h1 key={res._id}>{res.name}</h1>
           <p>Location :{res.location}</p>
           
           <p>Category : {res.category}</p>
           <p>operatingHours :{res.operatingHours}</p>
           <div>
-           <p>Avg Rating : <ShowRating rating={rating} /></p> 
+           <div>Avg Rating : <ShowRating rating={rating} /></div> 
           </div>
           <div>
             <Rating  handleAddRating={handleAddRating}/>
@@ -115,9 +115,9 @@ const  handleAddRating =async(resId,formData)=>{
             
           </div>
 
-          <p className="comments">Comments : {res.comments.map((comment)=>(
-                  <li className="comments"> {comment.text}</li>
-          ))}</p>
+          <div className="comments">Comments : {res.comments.map((comment)=>(
+                  <li className="comments" key={comment._id}> {comment.text}</li>
+          ))}</div>
           
         </div>
         <div className="ShowBookingCont">

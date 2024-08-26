@@ -15,7 +15,7 @@ const Restaurant = ({ restaurants }) => {
           <li key={res._id}>
            
             
-       <div className="imgr">     <img className="resimage" src={res.resimage} alt="background Image" /></div>
+       <div className="imgr">     <img className="resimage" src={res.resimage} alt={res.name} /></div>
             
               <h1>{res.name}</h1>
               <p>{res.category}</p>

@@ -35,7 +35,7 @@ const Rating = ({handleAddRating}) => {
       {[...Array(5)].map((star, idx) => {
         const currentRating = idx + 1;
         return (
-          <label>
+          <label key={idx}>
             <input
               name="rate"
               type="radio"

@@ -18,7 +18,7 @@
   gap: 20px; 
 }
 
-.myBookingCard > li {
+.myBookingCard div li {
   background-color: #537774;
   color: white;
   display: flex;
@@ -36,7 +36,24 @@
   transition: transform 0.2s; /* Smooth hover effect */
   padding-bottom: 30px;
 }
-
+.myBookingCard li {
+  background-color: #537774;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px;
+  
+  width: 420px;
+  height: 230px;
+  border-radius: 10px;
+  text-decoration: none;
+  list-style-type: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for a fancy effect */
+  transition: transform 0.2s; /* Smooth hover effect */
+  padding-bottom: 30px;
+}
 .myBookingCard > li:hover {
   transform: scale(1.05); /* Slight zoom on hover */
 }

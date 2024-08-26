@@ -3,9 +3,14 @@ import { Link } from "react-router-dom";
 import "./BookingList.css";
 
 const BookingList = ({ Bookings, handleDeleteBook }) => {
+ const books = Bookings.filter((book)=>{return book.restaurantId !== null})
+  if(books.length == 0){return <h1>No Bookings</h1>}
   return (
     <>
      
+     
+
+
       <div className="vhomeCont">
        
         <div className="starter">
@@ -19,12 +24,13 @@ const BookingList = ({ Bookings, handleDeleteBook }) => {
         </video>
         
         <div className="myBookingContainer">
-
+         
           <ul className="myBookingCard">
             {Bookings.map((book) => (
-              <>
+              <div key={book._id}>
+
                 {book?.restaurantId?.name ? (
-                  <li className="BookingList" key={book._id}>
+                  <li  className="BookingList" >
                     <h1>{book?.restaurantId?.name}</h1>
                     <p>Seats: {book.seats}</p>
                     <p>Date: {new Date(book.date).toLocaleDateString()}</p>
@@ -39,7 +45,7 @@ const BookingList = ({ Bookings, handleDeleteBook }) => {
                     </div>
                   </li>
                 ) : null}
-              </>
+              </div>
             ))}
           </ul>
         </div>
